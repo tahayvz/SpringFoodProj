@@ -23,8 +23,7 @@ public class LoginController {
 	
 	DB db = new DB();
 
-	// @RequestMapping("/admin") -> bu gövde altındaki tüm yönlenmeler /admin almak
-	// zorundadır.
+	// @RequestMapping("/admin") -> all methods under this request has to get /admin
 
 	// login page create
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -47,8 +46,6 @@ public class LoginController {
 			pre.setString(2, Util.MD5(adm.getApass()));
 			ResultSet rs = pre.executeQuery();
 			if (rs.next()) {
-				// kullanıcı oturumu açabilir.
-				// session yaratılıyor
 				adm.setAid(rs.getInt("aid"));
 				adm.setAname(rs.getString("aname"));
 				req.getSession().setAttribute("aid", adm);
@@ -63,11 +60,11 @@ public class LoginController {
 				
 				return "redirect:/admin/dashboard";
 			} else {
-				model.addAttribute("error", "Kullan�c� ad� yada �ifre hatal�");
+				model.addAttribute("error", "Username or password incorrect");
 			}
 		} catch (Exception e) {
 			System.err.println("login error : " + e);
-			model.addAttribute("error", "Sistem hatası oluştu!");
+			model.addAttribute("error", "system error has occurred!");
 		}
 		return "admin/login";
 	}
@@ -87,7 +84,5 @@ public class LoginController {
 		req.getSession().removeAttribute("aid");
 		return "redirect:/admin/";
 	}
-	
-	
 
 }

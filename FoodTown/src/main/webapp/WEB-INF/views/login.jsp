@@ -115,8 +115,7 @@
             <h1>Single Shop Page</h1>
             <ul class="bread-crumb clearfix">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="#">Pages</a></li>
-                <li>Single Shop Page</li>
+                <li><a href="#">Login</a></li>
             </ul>
         </div>
         </div>
@@ -151,9 +150,9 @@
                             </div>
                         </div>
                         <div class="submit-btn-area">
-                            <button id="form_submit" type="submit" class="btn btn-rounded btn-full">Submit</button>
+                            <button id="form_submit" type="submit" class="btn btn-rounded">Submit</button>
                         </div>
-                        <div class="form-footer text-center margin-top-30">
+                        <div class="form-footer  margin-top-30">
                             <p class="text-muted">Don't have an account?	
                             <a href='<s:url value="/register"></s:url>'>Sign up</a></p>
                         </div>

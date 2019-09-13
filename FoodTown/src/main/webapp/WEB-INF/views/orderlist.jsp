@@ -192,19 +192,25 @@
 												</td>
 												<td class="product-price">
 													<div class="form-group">
-															<c:if test="${not empty ctgData}">
-																<c:forEach items="${ctgData }" var="items">
-																	<c:if test="${item.ocategory==items.ctid}">	
+														<c:if test="${not empty ctgData}">
+															<c:forEach items="${ctgData }" var="items">
+																<c:if test="${item.ocategory==items.ctid}">	
 																	${items.ctname}
 																	</c:if>
-																</c:forEach>
-															</c:if>
+															</c:forEach>
+														</c:if>
 														<input type="hidden" value="${item.ocategory}"
 															name="ocategory" type="number" class="form-control"
 															placeholder="Enter Price">
 													</div>
 												</td>
-												<td class="product-price"><span>${item.ostatu}</span>
+												<td class="product-price"><c:if test="${not empty sls}">
+														<c:forEach items="${sls}" var="items">
+															<c:if test="${items.sid==item.ostatu}">	
+																		${items.sname}
+																		</c:if>
+														</c:forEach>
+													</c:if>
 													<div class="form-group">
 														<input type="hidden" value="${item.ostatu}" name="ostatu"
 															type="text" class="form-control"

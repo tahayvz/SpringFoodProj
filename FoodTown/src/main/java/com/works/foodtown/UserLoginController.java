@@ -40,8 +40,6 @@ public class UserLoginController {
 			String query = "select * from user where umail = ? and upassword = ?";
 			PreparedStatement pre = db.connect(query);
 			pre.setString(1, user.getUmail());
-//			pre.setString(2, user.getUpassword());
-
 			pre.setString(2, Util.MD5(user.getUpassword()));
 			ResultSet rs = pre.executeQuery();
 			if (rs.next()) {
@@ -61,11 +59,11 @@ public class UserLoginController {
 				
 				return "redirect:/";
 			} else {
-				model.addAttribute("error", "Kullanýcý adý yada þifre hatalý");
+				model.addAttribute("error", "Username or password incorrect");
 			}
 		} catch (Exception e) {
 			System.err.println("login error : " + e);
-			model.addAttribute("error", "Sistem hatasý oluþtu!");
+			model.addAttribute("error", "System error has occurred!");
 		}
 		return "login";
 	}

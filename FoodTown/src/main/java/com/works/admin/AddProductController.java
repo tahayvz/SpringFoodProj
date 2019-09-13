@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import model.Procategory;
 import model.Product;
+import model.Proorder;
+import model.User;
 import util.HibernateUtil;
 import util.Util;
 
@@ -28,6 +30,9 @@ public class AddProductController {
 		Session session = sf.openSession();
 		List<Procategory> cls = session.createQuery("from Procategory").list();
 		model.addAttribute("ctgData", cls);
+		model.addAttribute("ls", dataResult());
+		model.addAttribute("uls", userResult());
+		model.addAttribute("pls", productResult());
 		return Util.control(req, "addproduct");
 	}
 	
@@ -44,10 +49,24 @@ public class AddProductController {
 		
 		//tr.rollback(); // işlem hatası yukarıdakileri geri al
 		
-		return Util.control(req, "redirect:/admin/dashboard");
+		return Util.control(req, "redirect:/admin/products");
 	}
 	
-	
+	public List<Proorder> dataResult() {
+		Session sesi = sf.openSession();
+		List<Proorder> ls = sesi.createQuery("from Proorder").getResultList();
+		return ls;
+	}
+		public List<User> userResult() {
+		Session sesi = sf.openSession();
+		List<User> uls = sesi.createQuery("from User").getResultList();
+		return uls;
+	}
+		public List<Product> productResult() {
+		Session sesi = sf.openSession();
+		List<Product> pls = sesi.createQuery("from Product").getResultList();
+		return pls;
+	}
 	
 	
 }

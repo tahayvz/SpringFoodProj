@@ -12,20 +12,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import model.Product;
 import util.HibernateUtil;
 
-/**
- * Handles requests for the application home page.
- */
+
 @Controller
 public class HomeController {
-	SessionFactory sf = HibernateUtil.getSessionFactory(); // connection is established
+	SessionFactory sf = HibernateUtil.getSessionFactory();
 
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
 
-		//model data dönecek idsi olmalý product dönder
-			Session sesi = sf.openSession(); 
-		
+		Session sesi = sf.openSession(); 
 		List<Product> ls = sesi.createQuery("from Product").list();
 		model.addAttribute("data", ls);
 		

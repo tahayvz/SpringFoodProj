@@ -13,6 +13,7 @@
 
 <c:import url="/admin/css"></c:import>
 
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 	<div class="wrapper">
@@ -51,65 +52,77 @@
 					<!-- Small boxes (Stat box) -->
 					<c:import url="/admin/smallbox"></c:import>
 
-					<div class="row">
-						<div class="col-sm-6">
-							<h1>Add Product</h1>
 
-							<div class="card card-primary">
+
+					<div class="row">
+
+						<div class="col-sm-12">
+							<h1>
+							<c:if test="${ not empty ls }">
+												<c:forEach items="${ls }" var="item" begin="0" end="0">
+								<c:if test="${not empty ctgData}">
+									<c:forEach items="${ctgData }" var="items" >
+										<c:if test="${items.ctid==item.pcategory}">
+
+							${items.ctname} List
+							</c:if>
+							</c:forEach>
+							</c:if>
+							</c:forEach>
+							</c:if>
+							</h1>
+							<div class="card">
 								<div class="card-header">
-									<h3 class="card-title">Quick Example</h3>
+									<h3 class="card-title">Bordered Table</h3>
 								</div>
 								<!-- /.card-header -->
-								<!-- form start -->
-								<form action='<s:url value="/admin/addproductpost"></s:url>'
-									method="post" role="form">
-									<div class="card-body">
+								<div class="card-body">
+									<table class="table table-bordered">
+										<thead>
+											<tr>
+												<th>ID</th>
+												<th>Photo</th>
+												<th>Title</th>
+												<th>Detail</th>
+												<th>Price</th>
+												<th>Category</th>
+											</tr>
+										</thead>
+										<tbody>
 
-										<div class="form-group">
-											<label for="exampleInputName">Title</label> <input
-												name="ptitle" type="text" class="form-control"
-												placeholder="Enter title">
-										</div>
-										<div class="form-group">
-											<label for="exampleInputEmail1">Photo</label> <input
-												name="pphoto" type="text" class="form-control"
-												placeholder="Enter photo">
-										</div>
-										<div class="form-group">
-											<label for="exampleInputPassword1">Price</label> <input
-												name="pprice" type="number" class="form-control"
-												placeholder="Enter Price">
-										</div>
-										<div class="form-group">
-											<label for="exampleInputPassword1">Category</label> <select
-												name="pcategory" class="form-control">
-												<c:if test="${not empty ctgData}">
-													<c:forEach items="${ctgData }" var="item">
-														<option value="${item.ctid}">${item.ctname}</option>
-													</c:forEach>
-												</c:if>
-											</select>
-										</div>
-										<div class="form-group">
-											<label for="exampleInputPassword1">Statu</label> <input
-												name="pstatu" type="text" class="form-control"
-												placeholder="Enter statu">
-										</div>
-										<div class="form-group">
-											<label for="exampleInputName">Detail</label> <input
-												name="pdetail" type="text" class="form-control"
-												placeholder="Enter product detail">
-										</div>
-									</div>
-									<div class="card-footer">
-										<button type="submit" class="btn btn-primary">Submit</button>
-									</div>
-								</form>
+											<c:if test="${ not empty ls }">
+												<c:forEach items="${ls }" var="item">
+													<tr>
+														<td>${item.pid }</td>
+														<td><img class="img-thumbnail"
+															src="../../${item.pphoto }" width="75" /></td>
+														<td>${item.ptitle }</td>
+														<td>${item.pdetail }</td>
+														<td>${item.pprice }</td>
+														<td><c:if test="${not empty ctgData}">
+																<c:forEach items="${ctgData }" var="items">
+																	<c:if test="${items.ctid==item.pcategory}">					
+																		${items.ctname}
+																		</c:if>
+																</c:forEach>
+															</c:if></td>
+														<td><a
+															href='<s:url value="/admin/deleteProduct/${ item.pid }"></s:url>'
+															class="btn btn-danger">Delete</a></td>
+														<td><a
+															href='<s:url value="/admin/updateProduct/${ item.pid }"></s:url>'
+															class="btn btn-info">Update</a></td>
+													</tr>
+												</c:forEach>
+											</c:if>
+										</tbody>
+									</table>
+								</div>
+
 							</div>
+
 						</div>
-
 					</div>
-
 				</div>
 			</section>
 			<!-- /.content -->

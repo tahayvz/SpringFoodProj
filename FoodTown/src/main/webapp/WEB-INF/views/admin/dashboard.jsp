@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,75 +52,8 @@
 			<section class="content">
 				<div class="container-fluid">
 					<!-- Small boxes (Stat box) -->
-					<div class="row">
-						<div class="col-lg-3 col-6">
-							<!-- small box -->
-							<div class="small-box bg-info">
-								<div class="inner">
-									<h3>150</h3>
-
-									<p>New Orders</p>
-								</div>
-								<div class="icon">
-									<i class="ion ion-bag"></i>
-								</div>
-								<a href="#" class="small-box-footer">More info <i
-									class="fas fa-arrow-circle-right"></i></a>
-							</div>
-						</div>
-						<!-- ./col -->
-						<div class="col-lg-3 col-6">
-							<!-- small box -->
-							<div class="small-box bg-success">
-								<div class="inner">
-									<h3>
-										53<sup style="font-size: 20px">%</sup>
-									</h3>
-
-									<p>Bounce Rate</p>
-								</div>
-								<div class="icon">
-									<i class="ion ion-stats-bars"></i>
-								</div>
-								<a href="#" class="small-box-footer">More info <i
-									class="fas fa-arrow-circle-right"></i></a>
-							</div>
-						</div>
-						<!-- ./col -->
-						<div class="col-lg-3 col-6">
-							<!-- small box -->
-							<div class="small-box bg-warning">
-								<div class="inner">
-									<h3>44</h3>
-
-									<p>User Registrations</p>
-								</div>
-								<div class="icon">
-									<i class="ion ion-person-add"></i>
-								</div>
-								<a href="#" class="small-box-footer">More info <i
-									class="fas fa-arrow-circle-right"></i></a>
-							</div>
-						</div>
-						<!-- ./col -->
-						<div class="col-lg-3 col-6">
-							<!-- small box -->
-							<div class="small-box bg-danger">
-								<div class="inner">
-									<h3>65</h3>
-
-									<p>Unique Visitors</p>
-								</div>
-								<div class="icon">
-									<i class="ion ion-pie-graph"></i>
-								</div>
-								<a href="#" class="small-box-footer">More info <i
-									class="fas fa-arrow-circle-right"></i></a>
-							</div>
-						</div>
-					</div>
-
-
+					<c:import url="/admin/smallbox"></c:import>
+					
 					<div class="row">
 						<div class="col-sm-12">
 							<h1>Order List</h1>
@@ -146,43 +81,42 @@
 												<c:forEach items="${ls }" var="item">
 													<tr>
 														<td>${item.oid }</td>
-														<td><img class="img-thumbnail" src="../${item.ophoto }" 
-															width="75" /></td>
+														<td><img class="img-thumbnail"
+															src="../${item.ophoto }" width="75" /></td>
 														<td>${item.otitle }</td>
 														<td>${item.oprice }</td>
 														<td><c:if test="${not empty ctgData}">
 																<c:forEach items="${ctgData }" var="items">
+																	<c:if test="${item.ocategory==items.ctid}">	
 																		${items.ctname}
+																		</c:if>
 																</c:forEach>
 															</c:if></td>
-														<td>${item.ostatu }</td>
-														<td>
-														 <a href='<s:url value="/admin/orderontheroad/${item.oid }"></s:url>' 
-															class="btn btn-info">On the road</a> 
-														</td>
-														 <td> <a href='<s:url value="/admin/orderwasdelivered/${item.oid }"></s:url>' 
-															class="btn btn-info">Was delivered</a> 
-															</td>
-														<td> <a href='<s:url value="/admin/orderpreparing/${item.oid }"></s:url>' 
-															class="btn btn-info">Preparing</a>
-														</td>
+														<td><c:if test="${not empty sls}">
+																<c:forEach items="${sls}" var="items">
+																	<c:if test="${items.sid==item.ostatu}">	
+																		${items.sname}
+																		</c:if>
+																</c:forEach>
+															</c:if></td>
+														<td><a
+															href='<s:url value="/admin/orderontheroad/${item.oid }"></s:url>'
+															class="btn btn-info">On the road</a></td>
+														<td><a
+															href='<s:url value="/admin/orderwasdelivered/${item.oid }"></s:url>'
+															class="btn btn-info">Was delivered</a></td>
+														<td><a
+															href='<s:url value="/admin/orderpreparing/${item.oid }"></s:url>'
+															class="btn btn-info">Preparing</a></td>
 													</tr>
 												</c:forEach>
 											</c:if>
-
-
-
 										</tbody>
 									</table>
 								</div>
-
 							</div>
-
 						</div>
 					</div>
-
-
-
 				</div>
 			</section>
 			<!-- /.content -->

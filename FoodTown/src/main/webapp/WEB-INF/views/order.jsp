@@ -23,6 +23,18 @@
 <link href='<s:url value="../resources/css/icons.css"></s:url>'
 	rel="stylesheet">
 
+<script>
+
+function orderMessage() {
+	const cnf = confirm("Siparişiniz alındı.");
+	if (cnf) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+</script>
 </head>
 <body class="wow-animation">
 	<div class="site" id="page">
@@ -157,7 +169,6 @@
 									<th class="product-name">Product</th>
 									<th class="product-price text-center">Price</th>
 									<th class="product-price text-center">Category</th>
-									<th class="product-price text-center">Statu</th>
 									<th class="product-price text-center">Give Order</th>
 								</tr>
 							</thead>
@@ -168,7 +179,7 @@
 										<form action='<s:url value="/giveorder"></s:url>'
 											method="post" role="form">
 											<div class="card-body">
-												<td class="product-thumbnail"><img src="${data.pphoto}"
+												<td class="product-thumbnail"><img src="../${data.pphoto}"
 													width="100" alt="">
 													<div class="form-group">
 														<input type="hidden" value="${ data.pphoto}" name="ophoto"
@@ -185,7 +196,7 @@
 												</td>
 												<td class="product-price">
 													<div class="form-group">
-														<span class="Price-amount">${data.pprice}</span> <input
+														<span class="Price-amount">${data.pprice} TL</span> <input
 															type="hidden" value="${data.pprice}" name="oprice"
 															type="number" class="form-control"
 															placeholder="Enter Price">
@@ -205,16 +216,17 @@
 															placeholder="Enter Price">
 													</div>
 												</td>
-												<td class="product-price"><span>${data.pstatu}</span>
+												
 													<div class="form-group">
-														<input type="hidden" value="${data.pstatu}" name="ostatu"
-															type="text" class="form-control"
+														<input type="hidden" value=1 name="ostatu"
+															type="number" class="form-control"
 															placeholder="Enter statu">
-													</div></td>
+													</div>
 											</div>
-											<td>
+											<td class="product-price">
+											
 												<div>
-													<button type="submit" class="btn btn-primary">Order
+													<button onclick="return orderMessage();" type="submit" class="btn btn-primary">Order
 														Now</button>
 												</div>
 											</td>

@@ -7,7 +7,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>AdminLTE 3 | Dashboard</title>
+<title>AdminLTE 3 | Products</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -29,13 +29,13 @@
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<h1 class="m-0 text-dark">Dashboard</h1>
+							
 						</div>
 						<!-- /.col -->
 						<div class="col-sm-6">
 							<ol class="breadcrumb float-sm-right">
 								<li class="breadcrumb-item"><a href="#">Home</a></li>
-								<li class="breadcrumb-item active">Dashboard v1</li>
+								<li class="breadcrumb-item active">Products</li>
 							</ol>
 						</div>
 						<!-- /.col -->
@@ -50,73 +50,8 @@
 			<section class="content">
 				<div class="container-fluid">
 					<!-- Small boxes (Stat box) -->
-					<div class="row">
-						<div class="col-lg-3 col-6">
-							<!-- small box -->
-							<div class="small-box bg-info">
-								<div class="inner">
-									<h3>150</h3>
+					<c:import url="/admin/smallbox"></c:import>
 
-									<p>New Orders</p>
-								</div>
-								<div class="icon">
-									<i class="ion ion-bag"></i>
-								</div>
-								<a href="#" class="small-box-footer">More info <i
-									class="fas fa-arrow-circle-right"></i></a>
-							</div>
-						</div>
-						<!-- ./col -->
-						<div class="col-lg-3 col-6">
-							<!-- small box -->
-							<div class="small-box bg-success">
-								<div class="inner">
-									<h3>
-										53<sup style="font-size: 20px">%</sup>
-									</h3>
-
-									<p>Bounce Rate</p>
-								</div>
-								<div class="icon">
-									<i class="ion ion-stats-bars"></i>
-								</div>
-								<a href="#" class="small-box-footer">More info <i
-									class="fas fa-arrow-circle-right"></i></a>
-							</div>
-						</div>
-						<!-- ./col -->
-						<div class="col-lg-3 col-6">
-							<!-- small box -->
-							<div class="small-box bg-warning">
-								<div class="inner">
-									<h3>44</h3>
-
-									<p>User Registrations</p>
-								</div>
-								<div class="icon">
-									<i class="ion ion-person-add"></i>
-								</div>
-								<a href="#" class="small-box-footer">More info <i
-									class="fas fa-arrow-circle-right"></i></a>
-							</div>
-						</div>
-						<!-- ./col -->
-						<div class="col-lg-3 col-6">
-							<!-- small box -->
-							<div class="small-box bg-danger">
-								<div class="inner">
-									<h3>65</h3>
-
-									<p>Unique Visitors</p>
-								</div>
-								<div class="icon">
-									<i class="ion ion-pie-graph"></i>
-								</div>
-								<a href="#" class="small-box-footer">More info <i
-									class="fas fa-arrow-circle-right"></i></a>
-							</div>
-						</div>
-					</div>
 
 
 					<div class="row">
@@ -135,32 +70,34 @@
 												<th>ID</th>
 												<th>Photo</th>
 												<th>Title</th>
+												<th>Detail</th>
 												<th>Price</th>
 												<th>Category</th>
-												<th>Statu</th>
-
 											</tr>
 										</thead>
 										<tbody>
 
-											<c:if test="${ not empty ls }">
-												<c:forEach items="${ls }" var="item">
+											<c:if test="${ not empty pls }">
+												<c:forEach items="${pls }" var="item">
 													<tr>
 														<td>${item.pid }</td>
-														<td><img class="img-thumbnail" src="../${item.pphoto }" width="75" /></td>
+														<td><img class="img-thumbnail"
+															src="../${item.pphoto }" width="75" /></td>
 														<td>${item.ptitle }</td>
+														<td>${item.pdetail }</td>
 														<td>${item.pprice }</td>
 														<td><c:if test="${not empty ctgData}">
 																<c:forEach items="${ctgData }" var="items">
+																	<c:if test="${items.ctid==item.pcategory}">					
 																		${items.ctname}
+																		</c:if>
 																</c:forEach>
 															</c:if></td>
-														<td>${item.pstatu }</td>
 														<td><a
-															href='<s:url value="/admin/deleteproduct/${ item.pid }"></s:url>'
+															href='<s:url value="/admin/deleteProduct/${ item.pid }"></s:url>'
 															class="btn btn-danger">Delete</a></td>
 														<td><a
-															href='<s:url value="/admin/updateproduct/${ item.pid }"></s:url>'
+															href='<s:url value="/admin/updateProduct/${ item.pid }"></s:url>'
 															class="btn btn-info">Update</a></td>
 													</tr>
 												</c:forEach>

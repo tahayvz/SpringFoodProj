@@ -135,22 +135,19 @@
 									<span class="jl-title-info">Alway Tasty Food</span>
 									<h2>Special Offer</h2>
 								</div>
-								<div class="slide-subtitle">
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing
-										elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
-										sociis natoque penatibus et magnis dis parturient montes.</p>
-								</div>
-								<div class="btns">
-									<c:if test="${ not empty data }">
-										<c:forEach items="${ data }" var="item">
-											<c:if test="${item.pid==9 }">
-
+								<c:if test="${ not empty data }">
+									<c:forEach items="${ data }" var="item">
+										<c:if test="${item.pid==9 }">
+											<div class="slide-subtitle">
+												<p>${item.pdetail}</p>
+											</div>
+											<div class="btns">
 												<a href='<s:url value="/order/${item.pid}"></s:url>'
 													class="btn btn-lg margin-top-15">Order Now</a>
-											</c:if>
-										</c:forEach>
-									</c:if>
-								</div>
+											</div>
+										</c:if>
+									</c:forEach>
+								</c:if>
 							</div>
 						</div>
 					</div>
@@ -161,27 +158,23 @@
 					<div class="container">
 						<div class="row">
 							<div class="col col-lg-6 slide-caption">
-
 								<div class="slide-title">
 									<span class="jl-title-info">Alway Tasty Food</span>
 									<h2>Fresh & hot</h2>
 								</div>
-								<div class="slide-subtitle">
-									<p>Mauris mattis auctor cursus. Phasellus tellus tellus,
-										imperdiet ut imperdiet eu, iaculis a sem. Donec vehicula
-										luctus nunc in laoreet. Aliquam erat volutpat.</p>
-								</div>
-								<div class="btns">
-									<c:if test="${ not empty data }">
-										<c:forEach items="${ data }" var="item">
-											<c:if test="${item.pid==10 }">
-
+								<c:if test="${ not empty data }">
+									<c:forEach items="${ data }" var="item">
+										<c:if test="${item.pid==10 }">
+											<div class="slide-subtitle">
+												<p>${item.pdetail}</p>
+											</div>
+											<div class="btns">
 												<a href='<s:url value="/order/${item.pid}"></s:url>'
 													class="btn btn-lg margin-top-15">Order Now</a>
-											</c:if>
-										</c:forEach>
-									</c:if>
-								</div>
+											</div>
+										</c:if>
+									</c:forEach>
+								</c:if>
 							</div>
 						</div>
 					</div>
@@ -218,7 +211,7 @@
 							style="background-image: url(resources/img/feature-box2.jpg);">
 							<c:if test="${ not empty data }">
 								<c:forEach items="${ data }" var="item">
-									<c:if test="${item.pid==10 }">
+									<c:if test="${item.pid==27 }">
 
 										<a href='<s:url value="/detail/${item.pid}"></s:url>'
 											class="feature-box-link"></a>
@@ -235,7 +228,7 @@
 							style="background-image: url(resources/img/feature-box3.jpg);">
 							<c:if test="${ not empty data }">
 								<c:forEach items="${ data }" var="item">
-									<c:if test="${item.pid==10 }">
+									<c:if test="${item.pid==22 }">
 
 										<a href='<s:url value="/detail/${item.pid}"></s:url>'
 											class="feature-box-link"></a>
@@ -298,25 +291,15 @@
 											<img src="resources/img/burger1.jpg" alt="">
 										</figure>
 										<div class="caption">
-											<h5>
-												<c:if test="${ not empty data }">
-													<c:forEach items="${ data }" var="item">
-														<c:if test="${item.pid==9 }">
-															<a class="link link-default"
-																href='<s:url value="/detail/${item.pid}"></s:url>'>Luger
-																Burger</a>
-														</c:if>
-													</c:forEach>
-												</c:if>
-
-											</h5>
-											<p class="text-italic">Lorem ipsum dolor sit amet,
-												consectetuer adipiscing elit. Aenean commodo ligula eget
-												dolor. Aenean massa. natoque penatibus et magnis</p>
-											<p class="price">$12.50</p>
 											<c:if test="${ not empty data }">
 												<c:forEach items="${ data }" var="item">
-													<c:if test="${item.pid==9}">
+													<c:if test="${item.pid==9 }">
+														<h5>
+															<a class="link link-default"
+																href='<s:url value="/detail/${item.pid}"></s:url>'>${item.ptitle}</a>
+														</h5>
+														<p class="text-italic">${item.pdetail}</p>
+														<p class="price">${item.pprice}TL</p>
 														<a class="btn margin-top-15"
 															href='<s:url value="/order/${item.pid}"></s:url>'>Order
 															Now</a>
@@ -330,24 +313,15 @@
 											<img src="resources/img/burger2.jpg" alt="">
 										</figure>
 										<div class="caption">
-											<h5>
-												<c:if test="${ not empty data }">
-													<c:forEach items="${ data }" var="item">
-														<c:if test="${item.pid==10 }">
-															<a class="link link-default"
-																href='<s:url value="/detail/${item.pid}"></s:url>'>Le
-																Pigeon Burger</a>
-														</c:if>
-													</c:forEach>
-												</c:if>
-											</h5>
-											<p class="text-italic">Lorem ipsum dolor sit amet,
-												consectetuer adipiscing elit. Aenean commodo ligula eget
-												dolor. Aenean massa. natoque penatibus et magnis</p>
-											<p class="price">$13.50</p>
 											<c:if test="${ not empty data }">
 												<c:forEach items="${ data }" var="item">
 													<c:if test="${item.pid==10 }">
+														<h5>
+															<a class="link link-default"
+																href='<s:url value="/detail/${item.pid}"></s:url>'>${item.ptitle}</a>
+														</h5>
+														<p class="text-italic">${item.pdetail}</p>
+														<p class="price">${item.pprice}TL</p>
 														<a class="btn margin-top-15"
 															href='<s:url value="/order/${item.pid}"></s:url>'>Order
 															Now</a>
@@ -361,28 +335,21 @@
 											<img src="resources/img/burger3.jpg" alt="">
 										</figure>
 										<div class="caption">
-											<h5>
-												<c:if test="${ not empty data }">
-													<c:forEach items="${ data }" var="item">
-														<c:if test="${item.pid==13 }">
+											<c:if test="${ not empty data }">
+												<c:forEach items="${ data }" var="item">
+													<c:if test="${item.pid==13 }">
+														<h5>
 															<a class="link link-default"
-																href='<s:url value="/detail/${item.pid}"></s:url>'>Double
-																Animal Style</a>
-														</c:if>
-													</c:forEach>
-												</c:if>
-											</h5>
-											<p class="text-italic">Lorem ipsum dolor sit amet,
-												consectetuer adipiscing elit. Aenean commodo ligula eget
-												dolor. Aenean massa. natoque penatibus et magnis</p>
-											<p class="price">$14.50</p>
-											<c:forEach items="${ data }" var="item">
-												<c:if test="${item.pid==13 }">
-													<a class="btn margin-top-15"
-														href='<s:url value="/order/${item.pid}"></s:url>'>Order
-														Now</a>
-												</c:if>
-											</c:forEach>
+																href='<s:url value="/detail/${item.pid}"></s:url>'>${item.ptitle}</a>
+														</h5>
+														<p class="text-italic">${item.pdetail}</p>
+														<p class="price">${item.pprice}TL</p>
+														<a class="btn margin-top-15"
+															href='<s:url value="/order/${item.pid}"></s:url>'>Order
+															Now</a>
+													</c:if>
+												</c:forEach>
+											</c:if>
 										</div>
 									</div>
 									<div class="col-md-4 jl-item-carousel wow fadeInUp delay-04">
@@ -390,26 +357,21 @@
 											<img src="resources/img/burger4.jpg" alt="">
 										</figure>
 										<div class="caption">
-											<h5>
+											<c:if test="${ not empty data }">
 												<c:forEach items="${ data }" var="item">
-													<c:if test="${item.pid==14 }">
-														<a class="link link-default"
-															href='<s:url value="/detail/${item.pid}"></s:url>'>Whiskey
-															King Burger</a>
+													<c:if test="${item.pid==14}">
+														<h5>
+															<a class="link link-default"
+																href='<s:url value="/detail/${item.pid}"></s:url>'>${item.ptitle}</a>
+														</h5>
+														<p class="text-italic">${item.pdetail}</p>
+														<p class="price">${item.pprice}TL</p>
+														<a class="btn margin-top-15"
+															href='<s:url value="/order/${item.pid}"></s:url>'>Order
+															Now</a>
 													</c:if>
 												</c:forEach>
-											</h5>
-											<p class="text-italic">Lorem ipsum dolor sit amet,
-												consectetuer adipiscing elit. Aenean commodo ligula eget
-												dolor. Aenean massa. natoque penatibus et magnis</p>
-											<p class="price">$15.50</p>
-											<c:forEach items="${ data }" var="item">
-												<c:if test="${item.pid==14 }">
-													<a class="btn margin-top-15"
-														href='<s:url value="/order/${item.pid}"></s:url>'>Order
-														Now</a>
-												</c:if>
-											</c:forEach>
+											</c:if>
 										</div>
 									</div>
 								</div>
@@ -426,26 +388,21 @@
 											<img src="resources/img/pizza1.jpg" alt="">
 										</figure>
 										<div class="caption">
-											<h5>
+											<c:if test="${ not empty data }">
 												<c:forEach items="${ data }" var="item">
-													<c:if test="${item.pid==15 }">
-														<a class="link link-default"
-															href='<s:url value="/detail/${item.pid}"></s:url>'>Pizza
-															Alla Napoletana</a>
+													<c:if test="${item.pid==15}">
+														<h5>
+															<a class="link link-default"
+																href='<s:url value="/detail/${item.pid}"></s:url>'>${item.ptitle}</a>
+														</h5>
+														<p class="text-italic">${item.pdetail}</p>
+														<p class="price">${item.pprice}TL</p>
+														<a class="btn margin-top-15"
+															href='<s:url value="/order/${item.pid}"></s:url>'>Order
+															Now</a>
 													</c:if>
 												</c:forEach>
-											</h5>
-											<p class="text-italic">Lorem ipsum dolor sit amet,
-												consectetuer adipiscing elit. Aenean commodo ligula eget
-												dolor. Aenean massa. natoque penatibus et magnis</p>
-											<p class="price">$22.50</p>
-											<c:forEach items="${ data }" var="item">
-												<c:if test="${item.pid==15 }">
-													<a class="btn margin-top-15"
-														href='<s:url value="/order/${item.pid}"></s:url>'>Order
-														Now</a>
-												</c:if>
-											</c:forEach>
+											</c:if>
 										</div>
 									</div>
 									<div class="col-md-4 jl-item-carousel">
@@ -453,21 +410,21 @@
 											<img src="resources/img/pizza2.jpg" alt="">
 										</figure>
 										<div class="caption">
-											<h5>
+											<c:if test="${ not empty data }">
 												<c:forEach items="${ data }" var="item">
-													<c:if test="${item.pid==10 }">
-														<a class="link link-default"
-															href='<s:url value="/detail/${item.pid}"></s:url>'>Pizza
-															Marinara</a>
+													<c:if test="${item.pid==16 }">
+														<h5>
+															<a class="link link-default"
+																href='<s:url value="/detail/${item.pid}"></s:url>'>${item.ptitle}</a>
+														</h5>
+														<p class="text-italic">${item.pdetail}</p>
+														<p class="price">${item.pprice}TL</p>
+														<a class="btn margin-top-15"
+															href='<s:url value="/order/${item.pid}"></s:url>'>Order
+															Now</a>
 													</c:if>
 												</c:forEach>
-											</h5>
-											<p class="text-italic">Lorem ipsum dolor sit amet,
-												consectetuer adipiscing elit. Aenean commodo ligula eget
-												dolor. Aenean massa. natoque penatibus et magnis</p>
-											<p class="price">$23.50</p>
-											<a class="btn margin-top-15" href="single-shop-page.html">Order
-												Now</a>
+											</c:if>
 										</div>
 									</div>
 									<div class="col-md-4 jl-item-carousel">
@@ -475,21 +432,21 @@
 											<img src="resources/img/pizza3.jpg" alt="">
 										</figure>
 										<div class="caption">
-											<h5>
+											<c:if test="${ not empty data }">
 												<c:forEach items="${ data }" var="item">
-													<c:if test="${item.pid==10 }">
-														<a class="link link-default"
-															href='<s:url value="/detail/${item.pid}"></s:url>'>Pizza
-															Veronese</a>
+													<c:if test="${item.pid==17 }">
+														<h5>
+															<a class="link link-default"
+																href='<s:url value="/detail/${item.pid}"></s:url>'>${item.ptitle}</a>
+														</h5>
+														<p class="text-italic">${item.pdetail}</p>
+														<p class="price">${item.pprice}TL</p>
+														<a class="btn margin-top-15"
+															href='<s:url value="/order/${item.pid}"></s:url>'>Order
+															Now</a>
 													</c:if>
 												</c:forEach>
-											</h5>
-											<p class="text-italic">Lorem ipsum dolor sit amet,
-												consectetuer adipiscing elit. Aenean commodo ligula eget
-												dolor. Aenean massa. natoque penatibus et magnis</p>
-											<p class="price">$24.50</p>
-											<a class="btn margin-top-15" href="single-shop-page.html">Order
-												Now</a>
+											</c:if>
 										</div>
 									</div>
 									<div class="col-md-4 jl-item-carousel">
@@ -497,26 +454,21 @@
 											<img src="resources/img/pizza4.jpg" alt="">
 										</figure>
 										<div class="caption">
-											<h5>
+											<c:if test="${ not empty data }">
 												<c:forEach items="${ data }" var="item">
-													<c:if test="${item.pid==10 }">
-														<a class="link link-default"
-															href='<s:url value="/detail/${item.pid}"></s:url>'>Pizza
-															Ai Quattro</a>
+													<c:if test="${item.pid==18 }">
+														<h5>
+															<a class="link link-default"
+																href='<s:url value="/detail/${item.pid}"></s:url>'>${item.ptitle}</a>
+														</h5>
+														<p class="text-italic">${item.pdetail}</p>
+														<p class="price">${item.pprice}TL</p>
+														<a class="btn margin-top-15"
+															href='<s:url value="/order/${item.pid}"></s:url>'>Order
+															Now</a>
 													</c:if>
 												</c:forEach>
-											</h5>
-											<p class="text-italic">Lorem ipsum dolor sit amet,
-												consectetuer adipiscing elit. Aenean commodo ligula eget
-												dolor. Aenean massa. natoque penatibus et magnis</p>
-											<p class="price">$25.50</p>
-											<c:forEach items="${ data }" var="item">
-												<c:if test="${item.pid==10 }">
-													<a class="btn margin-top-15"
-														href='<s:url value="/order/${item.pid}"></s:url>'>Order
-														Now</a>
-												</c:if>
-											</c:forEach>
+											</c:if>
 										</div>
 									</div>
 								</div>
@@ -531,16 +483,21 @@
 											<img src="resources/img/salad1.jpg" alt="">
 										</figure>
 										<div class="caption">
-											<h5>
-												<a class="link link-default" href="single-shop-page.html">Pilachu
-													Fruit</a>
-											</h5>
-											<p class="text-italic">Lorem ipsum dolor sit amet,
-												consectetuer adipiscing elit. Aenean commodo ligula eget
-												dolor. Aenean massa. natoque penatibus et magnis</p>
-											<p class="price">$12.50</p>
-											<a class="btn margin-top-15" href="single-shop-page.html">Order
-												Now</a>
+											<c:if test="${ not empty data }">
+												<c:forEach items="${ data }" var="item">
+													<c:if test="${item.pid==19 }">
+														<h5>
+															<a class="link link-default"
+																href='<s:url value="/detail/${item.pid}"></s:url>'>${item.ptitle}</a>
+														</h5>
+														<p class="text-italic">${item.pdetail}</p>
+														<p class="price">${item.pprice}TL</p>
+														<a class="btn margin-top-15"
+															href='<s:url value="/order/${item.pid}"></s:url>'>Order
+															Now</a>
+													</c:if>
+												</c:forEach>
+											</c:if>
 										</div>
 									</div>
 									<div class="col-md-4 jl-item-carousel">
@@ -548,15 +505,21 @@
 											<img src="resources/img/salad2.jpg" alt="">
 										</figure>
 										<div class="caption">
-											<h5>
-												<a class="link link-default" href="single-shop-page.html">Choloride</a>
-											</h5>
-											<p class="text-italic">Lorem ipsum dolor sit amet,
-												consectetuer adipiscing elit. Aenean commodo ligula eget
-												dolor. Aenean massa. natoque penatibus et magnis</p>
-											<p class="price">$13.50</p>
-											<a class="btn margin-top-15" href="single-shop-page.html">Order
-												Now</a>
+											<c:if test="${ not empty data }">
+												<c:forEach items="${ data }" var="item">
+													<c:if test="${item.pid==20 }">
+														<h5>
+															<a class="link link-default"
+																href='<s:url value="/detail/${item.pid}"></s:url>'>${item.ptitle}</a>
+														</h5>
+														<p class="text-italic">${item.pdetail}</p>
+														<p class="price">${item.pprice}TL</p>
+														<a class="btn margin-top-15"
+															href='<s:url value="/order/${item.pid}"></s:url>'>Order
+															Now</a>
+													</c:if>
+												</c:forEach>
+											</c:if>
 										</div>
 									</div>
 									<div class="col-md-4 jl-item-carousel">
@@ -564,16 +527,21 @@
 											<img src="resources/img/salad3.jpg" alt="">
 										</figure>
 										<div class="caption">
-											<h5>
-												<a class="link link-default" href="single-shop-page.html">Brocco
-													Flower</a>
-											</h5>
-											<p class="text-italic">Lorem ipsum dolor sit amet,
-												consectetuer adipiscing elit. Aenean commodo ligula eget
-												dolor. Aenean massa. natoque penatibus et magnis</p>
-											<p class="price">$14.50</p>
-											<a class="btn margin-top-15" href="single-shop-page.html">Order
-												Now</a>
+											<c:if test="${ not empty data }">
+												<c:forEach items="${ data }" var="item">
+													<c:if test="${item.pid==21 }">
+														<h5>
+															<a class="link link-default"
+																href='<s:url value="/detail/${item.pid}"></s:url>'>${item.ptitle}</a>
+														</h5>
+														<p class="text-italic">${item.pdetail}</p>
+														<p class="price">${item.pprice}TL</p>
+														<a class="btn margin-top-15"
+															href='<s:url value="/order/${item.pid}"></s:url>'>Order
+															Now</a>
+													</c:if>
+												</c:forEach>
+											</c:if>
 										</div>
 									</div>
 									<div class="col-md-4 jl-item-carousel">
@@ -581,21 +549,25 @@
 											<img src="resources/img/salad4.jpg" alt="">
 										</figure>
 										<div class="caption">
-											<h5>
-												<a class="link link-default" href="single-shop-page.html">Brussels
-													Sprouts</a>
-											</h5>
-											<p class="text-italic">Lorem ipsum dolor sit amet,
-												consectetuer adipiscing elit. Aenean commodo ligula eget
-												dolor. Aenean massa. natoque penatibus et magnis</p>
-											<p class="price">$15.50</p>
-											<a class="btn margin-top-15" href="single-shop-page.html">Order
-												Now</a>
+											<c:if test="${ not empty data }">
+												<c:forEach items="${ data }" var="item">
+													<c:if test="${item.pid==22 }">
+														<h5>
+															<a class="link link-default"
+																href='<s:url value="/detail/${item.pid}"></s:url>'>${item.ptitle}</a>
+														</h5>
+														<p class="text-italic">${item.pdetail}</p>
+														<p class="price">${item.pprice}TL</p>
+														<a class="btn margin-top-15"
+															href='<s:url value="/order/${item.pid}"></s:url>'>Order
+															Now</a>
+													</c:if>
+												</c:forEach>
+											</c:if>
 										</div>
 									</div>
 								</div>
 							</div>
-
 							<div id="menu4" class="tab-pane">
 								<div class="jl-food-carousel slick-slider" data-arrows="true"
 									data-loop="true" data-dots="true" data-swipe="true"
@@ -606,16 +578,21 @@
 											<img src="resources/img/drink1.jpg" alt="">
 										</figure>
 										<div class="caption">
-											<h5>
-												<a class="link link-default" href="single-shop-page.html">Keurig
-													Dr Pepper</a>
-											</h5>
-											<p class="text-italic">Lorem ipsum dolor sit amet,
-												consectetuer adipiscing elit. Aenean commodo ligula eget
-												dolor. Aenean massa. natoque penatibus et magnis</p>
-											<p class="price">$12.50</p>
-											<a class="btn margin-top-15" href="single-shop-page.html">Order
-												Now</a>
+											<c:if test="${ not empty data }">
+												<c:forEach items="${ data }" var="item">
+													<c:if test="${item.pid==23 }">
+														<h5>
+															<a class="link link-default"
+																href='<s:url value="/detail/${item.pid}"></s:url>'>${item.ptitle}</a>
+														</h5>
+														<p class="text-italic">${item.pdetail}</p>
+														<p class="price">${item.pprice}TL</p>
+														<a class="btn margin-top-15"
+															href='<s:url value="/order/${item.pid}"></s:url>'>Order
+															Now</a>
+													</c:if>
+												</c:forEach>
+											</c:if>
 										</div>
 									</div>
 									<div class="col-md-4 jl-item-carousel">
@@ -623,16 +600,21 @@
 											<img src="resources/img/drink2.jpg" alt="">
 										</figure>
 										<div class="caption">
-											<h5>
-												<a class="link link-default" href="single-shop-page.html">Hamoud
-													Boualem</a>
-											</h5>
-											<p class="text-italic">Lorem ipsum dolor sit amet,
-												consectetuer adipiscing elit. Aenean commodo ligula eget
-												dolor. Aenean massa. natoque penatibus et magnis</p>
-											<p class="price">$13.50</p>
-											<a class="btn margin-top-15" href="single-shop-page.html">Order
-												Now</a>
+											<c:if test="${ not empty data }">
+												<c:forEach items="${ data }" var="item">
+													<c:if test="${item.pid==24 }">
+														<h5>
+															<a class="link link-default"
+																href='<s:url value="/detail/${item.pid}"></s:url>'>${item.ptitle}</a>
+														</h5>
+														<p class="text-italic">${item.pdetail}</p>
+														<p class="price">${item.pprice}TL</p>
+														<a class="btn margin-top-15"
+															href='<s:url value="/order/${item.pid}"></s:url>'>Order
+															Now</a>
+													</c:if>
+												</c:forEach>
+											</c:if>
 										</div>
 									</div>
 									<div class="col-md-4 jl-item-carousel">
@@ -640,16 +622,21 @@
 											<img src="resources/img/drink3.jpg" alt="">
 										</figure>
 										<div class="caption">
-											<h5>
-												<a class="link link-default" href="single-shop-page.html">National
-													Beverage</a>
-											</h5>
-											<p class="text-italic">Lorem ipsum dolor sit amet,
-												consectetuer adipiscing elit. Aenean commodo ligula eget
-												dolor. Aenean massa. natoque penatibus et magnis</p>
-											<p class="price">$14.50</p>
-											<a class="btn margin-top-15" href="single-shop-page.html">Order
-												Now</a>
+											<c:if test="${ not empty data }">
+												<c:forEach items="${ data }" var="item">
+													<c:if test="${item.pid==25 }">
+														<h5>
+															<a class="link link-default"
+																href='<s:url value="/detail/${item.pid}"></s:url>'>${item.ptitle}</a>
+														</h5>
+														<p class="text-italic">${item.pdetail}</p>
+														<p class="price">${item.pprice}TL</p>
+														<a class="btn margin-top-15"
+															href='<s:url value="/order/${item.pid}"></s:url>'>Order
+															Now</a>
+													</c:if>
+												</c:forEach>
+											</c:if>
 										</div>
 									</div>
 									<div class="col-md-4 jl-item-carousel">
@@ -657,16 +644,21 @@
 											<img src="resources/img/drink4.jpg" alt="">
 										</figure>
 										<div class="caption">
-											<h5>
-												<a class="link link-default" href="single-shop-page.html">Polar
-													Beverages</a>
-											</h5>
-											<p class="text-italic">Lorem ipsum dolor sit amet,
-												consectetuer adipiscing elit. Aenean commodo ligula eget
-												dolor. Aenean massa. natoque penatibus et magnis</p>
-											<p class="price">$15.50</p>
-											<a class="btn margin-top-15" href="single-shop-page.html">Order
-												Now</a>
+											<c:if test="${ not empty data }">
+												<c:forEach items="${ data }" var="item">
+													<c:if test="${item.pid==26 }">
+														<h5>
+															<a class="link link-default"
+																href='<s:url value="/detail/${item.pid}"></s:url>'>${item.ptitle}</a>
+														</h5>
+														<p class="text-italic">${item.pdetail}</p>
+														<p class="price">${item.pprice}TL</p>
+														<a class="btn margin-top-15"
+															href='<s:url value="/order/${item.pid}"></s:url>'>Order
+															Now</a>
+													</c:if>
+												</c:forEach>
+											</c:if>
 										</div>
 									</div>
 								</div>
@@ -682,16 +674,21 @@
 											<img src="resources/img/dessert1.jpg" alt="">
 										</figure>
 										<div class="caption">
-											<h5>
-												<a class="link link-default" href="single-shop-page.html">Mint
-													Oreo Cake</a>
-											</h5>
-											<p class="text-italic">Lorem ipsum dolor sit amet,
-												consectetuer adipiscing elit. Aenean commodo ligula eget
-												dolor. Aenean massa. natoque penatibus et magnis</p>
-											<p class="price">$12.50</p>
-											<a class="btn margin-top-15" href="single-shop-page.html">Order
-												Now</a>
+											<c:if test="${ not empty data }">
+												<c:forEach items="${ data }" var="item">
+													<c:if test="${item.pid==27 }">
+														<h5>
+															<a class="link link-default"
+																href='<s:url value="/detail/${item.pid}"></s:url>'>${item.ptitle}</a>
+														</h5>
+														<p class="text-italic">${item.pdetail}</p>
+														<p class="price">${item.pprice}TL</p>
+														<a class="btn margin-top-15"
+															href='<s:url value="/order/${item.pid}"></s:url>'>Order
+															Now</a>
+													</c:if>
+												</c:forEach>
+											</c:if>
 										</div>
 									</div>
 									<div class="col-md-4 jl-item-carousel">
@@ -699,16 +696,21 @@
 											<img src="resources/img/dessert2.jpg" alt="">
 										</figure>
 										<div class="caption">
-											<h5>
-												<a class="link link-default" href="single-shop-page.html">Ultimate
-													Gooey</a>
-											</h5>
-											<p class="text-italic">Lorem ipsum dolor sit amet,
-												consectetuer adipiscing elit. Aenean commodo ligula eget
-												dolor. Aenean massa. natoque penatibus et magnis</p>
-											<p class="price">$13.50</p>
-											<a class="btn margin-top-15" href="single-shop-page.html">Order
-												Now</a>
+											<c:if test="${ not empty data }">
+												<c:forEach items="${ data }" var="item">
+													<c:if test="${item.pid==28 }">
+														<h5>
+															<a class="link link-default"
+																href='<s:url value="/detail/${item.pid}"></s:url>'>${item.ptitle}</a>
+														</h5>
+														<p class="text-italic">${item.pdetail}</p>
+														<p class="price">${item.pprice}TL</p>
+														<a class="btn margin-top-15"
+															href='<s:url value="/order/${item.pid}"></s:url>'>Order
+															Now</a>
+													</c:if>
+												</c:forEach>
+											</c:if>
 										</div>
 									</div>
 									<div class="col-md-4 jl-item-carousel">
@@ -716,16 +718,21 @@
 											<img src="resources/img/dessert3.jpg" alt="">
 										</figure>
 										<div class="caption">
-											<h5>
-												<a class="link link-default" href="single-shop-page.html">Butter
-													Finger Cookie</a>
-											</h5>
-											<p class="text-italic">Lorem ipsum dolor sit amet,
-												consectetuer adipiscing elit. Aenean commodo ligula eget
-												dolor. Aenean massa. natoque penatibus et magnis</p>
-											<p class="price">$14.50</p>
-											<a class="btn margin-top-15" href="single-shop-page.html">Order
-												Now</a>
+											<c:if test="${ not empty data }">
+												<c:forEach items="${ data }" var="item">
+													<c:if test="${item.pid==29 }">
+														<h5>
+															<a class="link link-default"
+																href='<s:url value="/detail/${item.pid}"></s:url>'>${item.ptitle}</a>
+														</h5>
+														<p class="text-italic">${item.pdetail}</p>
+														<p class="price">${item.pprice}TL</p>
+														<a class="btn margin-top-15"
+															href='<s:url value="/order/${item.pid}"></s:url>'>Order
+															Now</a>
+													</c:if>
+												</c:forEach>
+											</c:if>
 										</div>
 									</div>
 									<div class="col-md-4 jl-item-carousel">
@@ -733,24 +740,29 @@
 											<img src="resources/img/dessert4.jpg" alt="">
 										</figure>
 										<div class="caption">
-											<h5>
-												<a class="link link-default" href="single-shop-page.html">Meyer
-													Lemon Bars</a>
-											</h5>
-											<p class="text-italic">Lorem ipsum dolor sit amet,
-												consectetuer adipiscing elit. Aenean commodo ligula eget
-												dolor. Aenean massa. natoque penatibus et magnis</p>
-											<p class="price">$15.50</p>
-											<a class="btn margin-top-15" href="single-shop-page.html">Order
-												Now</a>
+											<c:if test="${ not empty data }">
+												<c:forEach items="${ data }" var="item">
+													<c:if test="${item.pid==30 }">
+														<h5>
+															<a class="link link-default"
+																href='<s:url value="/detail/${item.pid}"></s:url>'>${item.ptitle}</a>
+														</h5>
+														<p class="text-italic">${item.pdetail}</p>
+														<p class="price">${item.pprice}TL</p>
+														<a class="btn margin-top-15"
+															href='<s:url value="/order/${item.pid}"></s:url>'>Order
+															Now</a>
+													</c:if>
+												</c:forEach>
+											</c:if>
 										</div>
 									</div>
 								</div>
 							</div>
-
 						</div>
 					</div>
 				</div>
+
 			</div>
 		</section>
 
@@ -777,22 +789,30 @@
 												<span class="fa fa-star"></span>
 											</div>
 											<a class="reviews" href="#">( 3 Customer Reviews )</a>
-											<div class="item-price">
-												$10.00
-												<del>$15</del>
-											</div>
-											<p class="jl-subtitle">Lorem ipsum dolor sit amet,
-												consectetuer adipiscing elit. Aenean commodo ligula eget
-												dolor. Aenean massa. Cum sociis natoque penatibus et magnis
-												dis parturient montes, nascetur ridiculus mus.</p>
-											<div class="tagcloud">
-												<span class="posted_in">Categories:</span><a href="#"
-													rel="tag">Good taste</a>, <a href="#" rel="tag">Healthy</a>,
-												<a href="#" rel="tag">Fresh</a>, <a href="#" rel="tag">Thin
-													Crust</a>
-											</div>
-											<a class="btn margin-top-15" href="single-shop-page.html">Order
-												Now</a>
+											<c:if test="${ not empty data }">
+												<c:forEach items="${ data }" var="item">
+													<c:if test="${item.pid==21 }">
+														<div class="item-price">
+
+
+															${item.pprice } TL
+															<del>40 TL</del>
+
+														</div>
+														<p class="jl-subtitle">${item.pdetail }</p>
+
+														<div class="tagcloud">
+															<span class="posted_in">Categories:</span><a href="#"
+																rel="tag">Good taste</a>, <a href="#" rel="tag">Healthy</a>,
+															<a href="#" rel="tag">Fresh</a>, <a href="#" rel="tag">Thin
+																Crust</a>
+														</div>
+														<a class="btn margin-top-15"
+															href='<s:url value="/order/${item.pid}"></s:url>'>Order
+															Now</a>
+													</c:if>
+												</c:forEach>
+											</c:if>
 										</div>
 									</div>
 								</div>
@@ -813,22 +833,26 @@
 											<span class="fa fa-star"></span>
 										</div>
 										<a class="reviews" href="#">( 2 Customer Reviews )</a>
+										<c:if test="${ not empty data }">
+												<c:forEach items="${ data }" var="item">
+													<c:if test="${item.pid==16}">
 										<div class="item-price">
-											$20.00
-											<del>$35</del>
+											${item.pprice } TL
+											<del>70 TL</del>
 										</div>
-										<p class="jl-subtitle">Lorem ipsum dolor sit amet,
-											consectetuer adipiscing elit. Aenean commodo ligula eget
-											dolor. Aenean massa. Cum sociis natoque penatibus et magnis
-											dis parturient montes, nascetur ridiculus mus.</p>
+										<p class="jl-subtitle">${item.pdetail }</p>
 										<div class="tagcloud">
 											<span class="posted_in">Categories:</span><a href="#"
 												rel="tag">Good taste</a>, <a href="#" rel="tag">Healthy</a>,
 											<a href="#" rel="tag">Fresh</a>, <a href="#" rel="tag">Thin
 												Crust</a>
 										</div>
-										<a class="btn margin-top-15" href="single-shop-page.html">Order
-											Now</a>
+										<a class="btn margin-top-15"
+															href='<s:url value="/order/${item.pid}"></s:url>'>Order
+															Now</a>
+													</c:if>
+												</c:forEach>
+											</c:if>
 									</div>
 								</div>
 							</div>

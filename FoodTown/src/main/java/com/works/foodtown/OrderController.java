@@ -15,14 +15,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import model.Procategory;
 import model.Product;
+import model.Proorder;
+import model.Statu;
 import util.HibernateUtil;
 import util.Util;
-import model.Proorder;
 
 
-/**
- * Handles requests for the application home page.
- */
 @Controller
 public class OrderController {
 	SessionFactory sf=HibernateUtil.getSessionFactory();
@@ -35,7 +33,11 @@ public class OrderController {
 		Product product = sesi.load(Product.class, productId);
 		model.addAttribute("data", product);
 		List<Procategory> cls = sesi.createQuery("from Procategory").list();
+		List<Statu> sls = sesi.createQuery("from Statu").list();
+
 		model.addAttribute("ctgData", cls);
+		model.addAttribute("sls", sls);
+
 		return Util.controlUser(req, "order");
 	}
 	
@@ -48,10 +50,8 @@ public class OrderController {
 		
 		int id =  (int) sesi.save(order);
 		System.out.println("insert id : " + id);
-		tr.commit(); // işlem başarılı kayıt yap
-		
-		//tr.rollback(); // işlem hatası yukarıdakileri geri al
-		
+		tr.commit(); 
+				
 		return Util.controlUser(req, "redirect:/orderlist");
 	}
 	

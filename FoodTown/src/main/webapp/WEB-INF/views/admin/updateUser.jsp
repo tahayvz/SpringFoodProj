@@ -53,52 +53,30 @@
 
 					<div class="row">
 						<div class="col-sm-6">
-							<h1>Add Product</h1>
+							<h1>Update Product</h1>
 
 							<div class="card card-primary">
 								<div class="card-header">
 									<h3 class="card-title">Quick Example</h3>
 								</div>
-								<!-- /.card-header -->
-								<!-- form start -->
-								<form action='<s:url value="/admin/addproductpost"></s:url>'
+								<form action="${user != null ? 'userEdit' : '' }"
 									method="post" role="form">
 									<div class="card-body">
-
+										
 										<div class="form-group">
-											<label for="exampleInputName">Title</label> <input
-												name="ptitle" type="text" class="form-control"
-												placeholder="Enter title">
+											<label for="exampleInputName">Name</label> <input
+												value="${user.uname }" name="uname" type="text"
+												class="form-control" placeholder="Enter name">
 										</div>
 										<div class="form-group">
-											<label for="exampleInputEmail1">Photo</label> <input
-												name="pphoto" type="text" class="form-control"
-												placeholder="Enter photo">
+											<label for="exampleInputEmail1">Email</label> <input
+												value="${user.umail}" name="umail" type="email"
+												class="form-control" placeholder="Enter mail">
 										</div>
 										<div class="form-group">
-											<label for="exampleInputPassword1">Price</label> <input
-												name="pprice" type="number" class="form-control"
-												placeholder="Enter Price">
-										</div>
-										<div class="form-group">
-											<label for="exampleInputPassword1">Category</label> <select
-												name="pcategory" class="form-control">
-												<c:if test="${not empty ctgData}">
-													<c:forEach items="${ctgData }" var="item">
-														<option value="${item.ctid}">${item.ctname}</option>
-													</c:forEach>
-												</c:if>
-											</select>
-										</div>
-										<div class="form-group">
-											<label for="exampleInputPassword1">Statu</label> <input
-												name="pstatu" type="text" class="form-control"
-												placeholder="Enter statu">
-										</div>
-										<div class="form-group">
-											<label for="exampleInputName">Detail</label> <input
-												name="pdetail" type="text" class="form-control"
-												placeholder="Enter product detail">
+											<label for="exampleInputPassword1">Password</label> <input
+												value="${user.upassword}" name="upassword" type="text"
+												class="form-control" placeholder="Enter Password">
 										</div>
 									</div>
 									<div class="card-footer">

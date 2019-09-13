@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import model.Procategory;
 import model.Proorder;
+import model.Statu;
 import util.HibernateUtil;
 import util.Util;
 
@@ -33,6 +34,9 @@ public class OrderListController {
 		model.addAttribute("orderlist", ls);
 		List<Procategory> cls = sesi.createQuery("from Procategory").list();
 		model.addAttribute("ctgData", cls);
+		List<Statu> sls = sesi.createQuery("from Statu").list();
+		model.addAttribute("sls", sls);
+		
 		return Util.controlUser(req, "orderlist");
 	}
 	

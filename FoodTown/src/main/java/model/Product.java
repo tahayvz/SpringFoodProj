@@ -24,16 +24,18 @@ public class Product implements java.io.Serializable {
 	private BigDecimal pprice;
 	private Integer pcategory;
 	private Integer pstatu;
+	private String pdetail;
 
 	public Product() {
 	}
 
-	public Product(String ptitle, String pphoto, BigDecimal pprice, Integer pcategory, Integer pstatu) {
+	public Product(String ptitle, String pphoto, BigDecimal pprice, Integer pcategory, Integer pstatu, String pdetail) {
 		this.ptitle = ptitle;
 		this.pphoto = pphoto;
 		this.pprice = pprice;
 		this.pcategory = pcategory;
 		this.pstatu = pstatu;
+		this.pdetail = pdetail;
 
 	}
 
@@ -94,6 +96,13 @@ public class Product implements java.io.Serializable {
 		this.pstatu = pstatu;
 	}
 	
+	@Column(name = "pdetail", nullable = false)
+	public String getPdetail() {
+		return this.pdetail;
+	}
 
+	public void setPdetail(String pdetail) {
+		this.pdetail = pdetail;
+	}
 
 }
