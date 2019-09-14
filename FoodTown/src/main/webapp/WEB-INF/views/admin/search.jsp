@@ -53,11 +53,14 @@
 				<div class="container-fluid">
 					<!-- Small boxes (Stat box) -->
 					<c:import url="/admin/smallbox"></c:import>
-
+					
 					<div class="row">
 						<div class="col-sm-12">
 							<h1>Order List</h1>
 							<div class="card">
+								<div class="card-header">
+									<h3 class="card-title">Bordered Table</h3>
+								</div>
 								<!-- /.card-header -->
 								<div class="card-body">
 									<table class="table table-bordered">
@@ -74,8 +77,8 @@
 										</thead>
 										<tbody>
 
-											<c:if test="${ not empty ols }">
-												<c:forEach items="${ols }" var="item">
+											<c:if test="${ not empty data }">
+												<c:forEach items="${data }" var="item">
 													<tr>
 														<td>${item.oid }</td>
 														<td><img class="img-thumbnail"

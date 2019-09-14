@@ -29,7 +29,7 @@ public class DashboardController {
 	
 	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
 	public String dashboard( HttpServletRequest req, Model model ) {
-		model.addAttribute("ls", dataResult());
+		model.addAttribute("ols", dataResult());
 		Session session = sf.openSession();
 		List<Procategory> cls = session.createQuery("from Procategory").list();
 		List<Statu> sls = session.createQuery("from Statu").list();
@@ -61,7 +61,7 @@ public class DashboardController {
 		Session sesi = sf.openSession();
 		Transaction tr = sesi.beginTransaction();
 		Proorder order= sesi.load(Proorder.class, oid);
-		order.setOstatu(1);
+		order.setOstatu(2);
 		sesi.update(order);
 		tr.commit();
 		return Util.control(req, "redirect:/admin/dashboard");
@@ -72,7 +72,7 @@ public class DashboardController {
 		Session sesi = sf.openSession();
 		Transaction tr = sesi.beginTransaction();
 		Proorder order= sesi.load(Proorder.class, oid);
-		order.setOstatu(2);
+		order.setOstatu(3);
 		sesi.update(order);
 		tr.commit();
 		return Util.control(req, "redirect:/admin/dashboard");
@@ -83,11 +83,23 @@ public class DashboardController {
 		Session sesi = sf.openSession();
 		Transaction tr = sesi.beginTransaction();
 		Proorder order= sesi.load(Proorder.class, oid);
-		order.setOstatu(3);
+		order.setOstatu(1);
 		sesi.update(order);
 		tr.commit();
 		return Util.control(req, "redirect:/admin/dashboard");
 	}
 	
+	// delete order
+	@RequestMapping(value = "/deleteOrder/{oid}")
+	public String deleteAdmin(@PathVariable int oid,HttpServletRequest req) {
+		
+		Session sesi = sf.openSession();
+		Transaction tr = sesi.beginTransaction();
+		Proorder order = sesi.load(Proorder.class, oid);
+		sesi.delete(order);
+		tr.commit();
+		
+		return Util.control(req, "redirect:/admin/dashboard");
+	}
 	
 }

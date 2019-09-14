@@ -20,9 +20,9 @@ import util.Util;
 @Controller
 @RequestMapping("/admin")
 public class LoginController {
-	
+	AdminPro adminPro = new AdminPro();
 	DB db = new DB();
-
+	
 	// @RequestMapping("/admin") -> all methods under this request has to get /admin
 
 	// login page create
@@ -45,11 +45,13 @@ public class LoginController {
 			pre.setString(1, adm.getAmail());
 			pre.setString(2, Util.MD5(adm.getApass()));
 			ResultSet rs = pre.executeQuery();
+
 			if (rs.next()) {
 				adm.setAid(rs.getInt("aid"));
 				adm.setAname(rs.getString("aname"));
+				adminPro.setAname(rs.getString("aname"));
 				req.getSession().setAttribute("aid", adm);
-				
+
 				// remember check ?
 				if(remember.equals("on")) {
 					Cookie cookie = new Cookie("user_cookie", ""+rs.getInt("aid"));
@@ -68,8 +70,10 @@ public class LoginController {
 		}
 		return "admin/login";
 	}
-	
-	
+	MyAdminObject.getMyAdminObject().setMyObject(adminPro);
+//	public String getA() {
+//		return adminPro.getAname();
+//	}
 	// exit
 	@RequestMapping(value = "/exit", method = RequestMethod.GET)
 	public String exit(HttpServletRequest req, HttpServletResponse res) {

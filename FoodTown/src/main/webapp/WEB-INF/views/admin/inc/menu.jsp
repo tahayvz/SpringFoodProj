@@ -7,9 +7,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
 	<!-- Brand Logo -->
-	<a href="index3.html" class="brand-link"> <img
-		src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
-		class="brand-image img-circle elevation-3" style="opacity: .8">
+	<a href="index3.html" class="brand-link"> 
 		<span class="brand-text font-weight-light">AdminLTE 3</span>
 	</a>
 
@@ -18,11 +16,11 @@
 		<!-- Sidebar user panel (optional) -->
 		<div class="user-panel mt-3 pb-3 mb-3 d-flex">
 			<div class="image">
-				<img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2"
+				<img src='<s:url value="../resources/img/profile.png"></s:url>' class="img-circle elevation-2"
 					alt="User Image">
 			</div>
 			<div class="info">
-				<a href="#" class="d-block"> Alexander Pierce</a>
+				<a href="#" class="d-block"><c:if test="${not empty adminls}"> ${adminls.aname}</c:if> Alexander Pierce</a>
 			</div>
 		</div>
 
@@ -78,15 +76,6 @@
 								<i class="far fa-circle nav-icon"></i>
 								<p>Add Admin</p>
 						</a></li>
-						<li class="nav-item"><a href="pages/layout/boxed.html"
-							class="nav-link"> <i class="far fa-circle nav-icon"></i>
-								<p>Boxed</p>
-						</a></li>
-						<li class="nav-item"><a
-							href="pages/layout/fixed-sidebar.html" class="nav-link"> <i
-								class="far fa-circle nav-icon"></i>
-								<p>Fixed Sidebar</p>
-						</a></li>
 					</ul></li>
 				<li class="nav-item has-treeview"><a href="#" class="nav-link">
 						<i class="nav-icon fas fa-chart-pie"></i>
@@ -99,239 +88,67 @@
 							href='<s:url value="/admin/userlist"></s:url>' class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
 								<p>User List</p>
-						</a></li>
-						<li class="nav-item"><a href="pages/charts/flot.html"
-							class="nav-link"> <i class="far fa-circle nav-icon"></i>
-								<p>Flot</p>
-						</a></li>
-						<li class="nav-item"><a href="pages/charts/inline.html"
-							class="nav-link"> <i class="far fa-circle nav-icon"></i>
-								<p>Inline</p>
-						</a></li>
-					</ul></li>
-				<li class="nav-item has-treeview"><a href="#" class="nav-link">
-						<i class="nav-icon fas fa-tree"></i>
-						<p>
-							Products Category <i class="fas fa-angle-left right"></i>
-						</p>
-				</a>
-					<ul class="nav nav-treeview">
-						<li class="nav-item"><c:if test="${not empty cls}">
-								<c:forEach items="${cls}" var="item" begin="0" end="0">
-									<a
-										href='<s:url value="/admin/categoryproduct/${item.ctname}"></s:url>'
-										class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>${item.ctname}</p>
-									</a>
-								</c:forEach>
-							</c:if></li>
-						<li class="nav-item"><c:if test="${not empty cls}">
-								<c:forEach items="${cls}" var="item" begin="1" end="1">
-									<a
-										href='<s:url value="/admin/categoryproduct/${item.ctname}"></s:url>'
-										class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>${item.ctname}</p>
-									</a>
-								</c:forEach>
-							</c:if></li>
-						<li class="nav-item"><c:if test="${not empty cls}">
-								<c:forEach items="${cls}" var="item" begin="2" end="2">
-									<a
-										href='<s:url value="/admin/categoryproduct/${item.ctname}"></s:url>'
-										class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>${item.ctname}</p>
-									</a>
-								</c:forEach>
-							</c:if></li>
-						<li class="nav-item"><c:if test="${not empty cls}">
-								<c:forEach items="${cls}" var="item" begin="3" end="3">
-									<a
-										href='<s:url value="/admin/categoryproduct/${item.ctname}"></s:url>'
-										class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>${item.ctname}</p>
-									</a>
-								</c:forEach>
-							</c:if></li>
-						<li class="nav-item"><c:if test="${not empty cls}">
-								<c:forEach items="${cls}" var="item" begin="4" end="4">
-									<a
-										href='<s:url value="/admin/categoryproduct/${item.ctname}"></s:url>'
-										class="nav-link"> <i class="far fa-circle nav-icon"></i>
-										<p>${item.ctname}</p>
-									</a>
-								</c:forEach>
-							</c:if></li>
-					</ul></li>
-				<li class="nav-item has-treeview"><a href="#" class="nav-link">
-						<i class="nav-icon fas fa-edit"></i>
-						<p>
-							Forms <i class="fas fa-angle-left right"></i>
-						</p>
-				</a>
-					<ul class="nav nav-treeview">
-						<li class="nav-item"><a href="pages/forms/general.html"
-							class="nav-link"> <i class="far fa-circle nav-icon"></i>
-								<p>General Elements</p>
-						</a></li>
-						<li class="nav-item"><a href="pages/forms/advanced.html"
-							class="nav-link"> <i class="far fa-circle nav-icon"></i>
-								<p>Advanced Elements</p>
-						</a></li>
-						<li class="nav-item"><a href="pages/forms/editors.html"
-							class="nav-link"> <i class="far fa-circle nav-icon"></i>
-								<p>Editors</p>
-						</a></li>
-					</ul></li>
-				<li class="nav-item has-treeview"><a href="#" class="nav-link">
-						<i class="nav-icon fas fa-table"></i>
-						<p>
-							Tables <i class="fas fa-angle-left right"></i>
-						</p>
-				</a>
-					<ul class="nav nav-treeview">
-						<li class="nav-item"><a href="pages/tables/simple.html"
-							class="nav-link"> <i class="far fa-circle nav-icon"></i>
-								<p>Simple Tables</p>
-						</a></li>
-						<li class="nav-item"><a href="pages/tables/data.html"
-							class="nav-link"> <i class="far fa-circle nav-icon"></i>
-								<p>DataTables</p>
-						</a></li>
-						<li class="nav-item"><a href="pages/tables/jsgrid.html"
-							class="nav-link"> <i class="far fa-circle nav-icon"></i>
-								<p>jsGrid</p>
-						</a></li>
-					</ul></li>
-				<li class="nav-header">EXAMPLES</li>
-				<li class="nav-item"><a href="pages/calendar.html"
-					class="nav-link"> <i class="nav-icon far fa-calendar-alt"></i>
-						<p>
-							Calendar <span class="badge badge-info right">2</span>
-						</p>
-				</a></li>
-				<li class="nav-item has-treeview"><a href="#" class="nav-link">
-						<i class="nav-icon far fa-envelope"></i>
-						<p>
-							Mailbox <i class="fas fa-angle-left right"></i>
-						</p>
-				</a>
-					<ul class="nav nav-treeview">
-						<li class="nav-item"><a href="pages/mailbox/mailbox.html"
-							class="nav-link"> <i class="far fa-circle nav-icon"></i>
-								<p>Inbox</p>
-						</a></li>
-						<li class="nav-item"><a href="pages/mailbox/compose.html"
-							class="nav-link"> <i class="far fa-circle nav-icon"></i>
-								<p>Compose</p>
-						</a></li>
-						<li class="nav-item"><a href="pages/mailbox/read-mail.html"
-							class="nav-link"> <i class="far fa-circle nav-icon"></i>
-								<p>Read</p>
-						</a></li>
-					</ul></li>
-				<li class="nav-item has-treeview"><a href="#" class="nav-link">
-						<i class="nav-icon fas fa-book"></i>
-						<p>
-							Pages <i class="fas fa-angle-left right"></i>
-						</p>
-				</a>
-					<ul class="nav nav-treeview">
-						<li class="nav-item"><a href="pages/examples/invoice.html"
-							class="nav-link"> <i class="far fa-circle nav-icon"></i>
-								<p>Invoice</p>
-						</a></li>
-						<li class="nav-item"><a href="pages/examples/profile.html"
-							class="nav-link"> <i class="far fa-circle nav-icon"></i>
-								<p>Profile</p>
-						</a></li>
-						<li class="nav-item"><a href="pages/examples/e_commerce.html"
-							class="nav-link"> <i class="far fa-circle nav-icon"></i>
-								<p>E-commerce</p>
-						</a></li>
-						<li class="nav-item"><a href="pages/examples/projects.html"
-							class="nav-link"> <i class="far fa-circle nav-icon"></i>
-								<p>Projects</p>
-						</a></li>
+						</a></li></ul>
+						<li class="nav-item has-treeview"><a href="#"
+							class="nav-link"> <i class="nav-icon fas fa-tree"></i>
+								<p>
+									Products Category <i class="fas fa-angle-left right"></i>
+								</p>
+						</a>
+							<ul class="nav nav-treeview">
+								<li class="nav-item"><c:if test="${not empty cls}">
+										<c:forEach items="${cls}" var="item" begin="0" end="0">
+											<a
+												href='<s:url value="/admin/categoryproduct/${item.ctname}"></s:url>'
+												class="nav-link"> <i class="far fa-circle nav-icon"></i>
+												<p>${item.ctname}</p>
+											</a>
+										</c:forEach>
+									</c:if></li>
+								<li class="nav-item"><c:if test="${not empty cls}">
+										<c:forEach items="${cls}" var="item" begin="1" end="1">
+											<a
+												href='<s:url value="/admin/categoryproduct/${item.ctname}"></s:url>'
+												class="nav-link"> <i class="far fa-circle nav-icon"></i>
+												<p>${item.ctname}</p>
+											</a>
+										</c:forEach>
+									</c:if></li>
+								<li class="nav-item"><c:if test="${not empty cls}">
+										<c:forEach items="${cls}" var="item" begin="2" end="2">
+											<a
+												href='<s:url value="/admin/categoryproduct/${item.ctname}"></s:url>'
+												class="nav-link"> <i class="far fa-circle nav-icon"></i>
+												<p>${item.ctname}</p>
+											</a>
+										</c:forEach>
+									</c:if></li>
+								<li class="nav-item"><c:if test="${not empty cls}">
+										<c:forEach items="${cls}" var="item" begin="3" end="3">
+											<a
+												href='<s:url value="/admin/categoryproduct/${item.ctname}"></s:url>'
+												class="nav-link"> <i class="far fa-circle nav-icon"></i>
+												<p>${item.ctname}</p>
+											</a>
+										</c:forEach>
+									</c:if></li>
+								<li class="nav-item"><c:if test="${not empty cls}">
+										<c:forEach items="${cls}" var="item" begin="4" end="4">
+											<a
+												href='<s:url value="/admin/categoryproduct/${item.ctname}"></s:url>'
+												class="nav-link"> <i class="far fa-circle nav-icon"></i>
+												<p>${item.ctname}</p>
+											</a>
+										</c:forEach>
+									</c:if></li>
+							</ul></li>
 						<li class="nav-item"><a
-							href="pages/examples/project_add.html" class="nav-link"> <i
-								class="far fa-circle nav-icon"></i>
-								<p>Project Add</p>
+							href='<s:url value="/admin/exit"></s:url>' class="nav-link">
+								<i class="nav-icon far fa-circle text-danger"></i>
+								<p class="text">Exit</p>
 						</a></li>
-						<li class="nav-item"><a
-							href="pages/examples/project_edit.html" class="nav-link"> <i
-								class="far fa-circle nav-icon"></i>
-								<p>Project Edit</p>
-						</a></li>
-						<li class="nav-item"><a
-							href="pages/examples/project_detail.html" class="nav-link"> <i
-								class="far fa-circle nav-icon"></i>
-								<p>Project Detail</p>
-						</a></li>
-						<li class="nav-item"><a href="pages/examples/contacts.html"
-							class="nav-link"> <i class="far fa-circle nav-icon"></i>
-								<p>Contacts</p>
-						</a></li>
-					</ul></li>
-				<li class="nav-item has-treeview"><a href="#" class="nav-link">
-						<i class="nav-icon far fa-plus-square"></i>
-						<p>
-							Extras <i class="fas fa-angle-left right"></i>
-						</p>
-				</a>
-					<ul class="nav nav-treeview">
-						<li class="nav-item"><a href="pages/examples/login.html"
-							class="nav-link"> <i class="far fa-circle nav-icon"></i>
-								<p>Login</p>
-						</a></li>
-						<li class="nav-item"><a href="pages/examples/register.html"
-							class="nav-link"> <i class="far fa-circle nav-icon"></i>
-								<p>Register</p>
-						</a></li>
-						<li class="nav-item"><a href="pages/examples/lockscreen.html"
-							class="nav-link"> <i class="far fa-circle nav-icon"></i>
-								<p>Lockscreen</p>
-						</a></li>
-						<li class="nav-item"><a
-							href="pages/examples/legacy-user-menu.html" class="nav-link">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Legacy User Menu</p>
-						</a></li>
-						<li class="nav-item"><a
-							href="pages/examples/language-menu.html" class="nav-link"> <i
-								class="far fa-circle nav-icon"></i>
-								<p>Language Menu</p>
-						</a></li>
-						<li class="nav-item"><a href="pages/examples/404.html"
-							class="nav-link"> <i class="far fa-circle nav-icon"></i>
-								<p>Error 404</p>
-						</a></li>
-						<li class="nav-item"><a href="pages/examples/500.html"
-							class="nav-link"> <i class="far fa-circle nav-icon"></i>
-								<p>Error 500</p>
-						</a></li>
-						<li class="nav-item"><a href="pages/examples/blank.html"
-							class="nav-link"> <i class="far fa-circle nav-icon"></i>
-								<p>Blank Page</p>
-						</a></li>
-						<li class="nav-item"><a href="starter.html" class="nav-link">
-								<i class="far fa-circle nav-icon"></i>
-								<p>Starter Page</p>
-						</a></li>
-					</ul></li>
-				<li class="nav-header">MISCELLANEOUS</li>
-				<li class="nav-item"><a href="https://adminlte.io/docs/3.0"
-					class="nav-link"> <i class="nav-icon fas fa-file"></i>
-						<p>Documentation</p>
-				</a></li>
-				<li class="nav-header">LABELS</li>
 
-				<li class="nav-item"><a
-					href='<s:url value="/admin/exit"></s:url>' class="nav-link"> <i
-						class="nav-icon far fa-circle text-danger"></i>
-						<p class="text">Exit</p>
-				</a></li>
-
-			</ul>
+					</ul>
 		</nav>
 		<!-- /.sidebar-menu -->
 	</div>
