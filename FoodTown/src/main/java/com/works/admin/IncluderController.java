@@ -1,6 +1,5 @@
 package com.works.admin;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -15,12 +14,10 @@ import model.Procategory;
 import model.Proorder;
 import util.HibernateUtil;
 import util.Util;
-import com.works.admin.AdminPro;
 @Controller
 @RequestMapping("/admin")
 public class IncluderController {
 	SessionFactory sf = HibernateUtil.getSessionFactory();
-	    LoginController inc;
 
 	@RequestMapping(value = "/css", method = RequestMethod.GET)
 	public String dashBoard() {
@@ -40,11 +37,7 @@ public class IncluderController {
 		model.addAttribute("als", als);
 		List<Procategory> cls = sesi.createQuery("from Procategory").getResultList();
 		model.addAttribute("cls",cls);
-		  inc = new LoginController();
 	    
-		 List<AdminPro> list = inc.getList();
-			model.addAttribute("adminls",list);
-
 		return "admin/inc/menu";
 	}
 

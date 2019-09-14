@@ -20,7 +20,6 @@ import util.Util;
 @Controller
 @RequestMapping("/admin")
 public class LoginController {
-	AdminPro adminPro = new AdminPro();
 	DB db = new DB();
 	
 	// @RequestMapping("/admin") -> all methods under this request has to get /admin
@@ -49,7 +48,6 @@ public class LoginController {
 			if (rs.next()) {
 				adm.setAid(rs.getInt("aid"));
 				adm.setAname(rs.getString("aname"));
-				adminPro.setAname(rs.getString("aname"));
 				req.getSession().setAttribute("aid", adm);
 
 				// remember check ?
@@ -57,9 +55,7 @@ public class LoginController {
 					Cookie cookie = new Cookie("user_cookie", ""+rs.getInt("aid"));
 					cookie.setMaxAge(60*60*24);
 					res.addCookie(cookie);
-				}
-				
-				
+				}				
 				return "redirect:/admin/dashboard";
 			} else {
 				model.addAttribute("error", "Username or password incorrect");
@@ -70,10 +66,8 @@ public class LoginController {
 		}
 		return "admin/login";
 	}
-	MyAdminObject.getMyAdminObject().setMyObject(adminPro);
-//	public String getA() {
-//		return adminPro.getAname();
-//	}
+
+	
 	// exit
 	@RequestMapping(value = "/exit", method = RequestMethod.GET)
 	public String exit(HttpServletRequest req, HttpServletResponse res) {

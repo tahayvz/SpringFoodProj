@@ -20,7 +20,8 @@
 					alt="User Image">
 			</div>
 			<div class="info">
-				<a href="#" class="d-block"><c:if test="${not empty adminls}"> ${adminls.aname}</c:if> Alexander Pierce</a>
+				<a href="#" class="d-block">
+				Alexander Pierce</a>
 			</div>
 		</div>
 
