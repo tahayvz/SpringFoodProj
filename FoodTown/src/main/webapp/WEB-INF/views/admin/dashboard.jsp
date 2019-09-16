@@ -14,7 +14,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <c:import url="/admin/css"></c:import>
-
+<script>
+	function delete() {
+		const cnf = confirm("Are you sure you want to delete?");
+		if (cnf) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+</script>
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -96,7 +105,7 @@
 																		</c:if>
 																</c:forEach>
 															</c:if></td>
-														<td><a
+														<td><a 
 															href='<s:url value="/admin/orderpreparing/${item.oid }"></s:url>'
 															class="btn btn-info">Preparing</a></td>
 														<td><a
@@ -104,10 +113,13 @@
 															class="btn btn-info">On the road</a></td>
 														<td><a
 															href='<s:url value="/admin/orderwasdelivered/${item.oid }"></s:url>'
-															class="btn btn-success">Was delivered</a></td>
-														<td><a
+															class="btn btn-success">Was delivered</a></td>															
+														<td><a style="width: 60px"
+															href='<s:url value="/admin/infoOrder/${item.ouserid }"></s:url>'
+															class="btn btn-info">User Info</a></td>
+														<td><a style="width: 70px" onclick="return delete();"
 															href='<s:url value="/admin/deleteOrder/${item.oid }"></s:url>'
-															class="btn btn-danger">Delete</a></td>
+															class="btn btn-danger">Delete      </a></td>
 													</tr>
 												</c:forEach>
 											</c:if>

@@ -47,7 +47,7 @@ public class OrderController {
 		
 		Session sesi = sf.openSession();
 		Transaction tr = sesi.beginTransaction();
-		
+		order.setOuserid(UserLoginController.uid);
 		int id =  (int) sesi.save(order);
 		System.out.println("insert id : " + id);
 		tr.commit(); 

@@ -22,6 +22,7 @@ public class Proorder implements java.io.Serializable {
 	private BigDecimal oprice;
 	private Integer ocategory;
 	private Integer ostatu;
+	private Integer ouserid;
 
 	public Proorder() {
 	}
@@ -90,5 +91,14 @@ public class Proorder implements java.io.Serializable {
 
 	public void setOstatu(Integer ostatu) {
 		this.ostatu = ostatu;
+	}
+	
+	@Column(name = "ouserid", nullable = false)
+	public Integer getOuserid() {
+		return this.ouserid;
+	}
+
+	public void setOuserid(Integer ouserid) {
+		this.ouserid = ouserid;
 	}
 }

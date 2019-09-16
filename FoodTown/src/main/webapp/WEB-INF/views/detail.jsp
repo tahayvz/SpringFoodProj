@@ -12,116 +12,19 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <!-- Title-->
-<title>Food | Home</title>
+<title>Detail | Home</title>
 <!-- Favicon-->
 <link rel="icon" href="../img/favicon.png" type="image/x-icon">
 <!-- Stylesheets-->
-<link href='<s:url value="../resources/css/bootstrap.min.css"></s:url>'
-	rel="stylesheet">
-<link href='<s:url value="../resources/css/style.css"></s:url>'
-	rel="stylesheet">
-<link href='<s:url value="../resources/css/icons.css"></s:url>'
-	rel="stylesheet">
+<c:import url="/usercss"></c:import>
+
 
 </head>
 <body class="wow-animation">
 	<div class="site" id="page">
 		<!-- Header-->
 		<header>
-			<div class="jl_blank_nav"></div>
-			<div class="jl-menu-wrapper jl_menu_sticky jl_stick">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="jl_header_wrapper">
-								<!-- nav toggle button -->
-								<button
-									class="navbar-toggler collapsed navicon justify-content-end"
-									type="button" data-toggle="collapse"
-									data-target="#navbarMobile" aria-controls="navbarMobile"
-									aria-expanded="false">
-									<span></span> <span></span> <span></span>
-								</button>
-								<!-- Logo-->
-								<div class="jl_logo">
-									<a href="index.html"><img src="../resources/img/logo.png"
-										alt=""></a>
-								</div>
-								<!-- Menu-->
-								<div
-									class="navigation_wrapper header-nav navbar-collapse collapse"
-									id="navbarMobile">
-									<ul id="mainmenu" class="jl_main_menu">
-										<li class="menu-item-has-children"><a href="#">Our
-												Menu</a>
-											<ul class="sub-menu">
-												<li><a href="food-menu-classic.html">Food Menu
-														Classic</a></li>
-												<li><a href="food-menu-list.html">Food Menu List</a></li>
-												<li><a href="food-menu-grid.html">Food Menu Grid</a></li>
-											</ul></li>
-										<li class="menu-item-has-children"><a href="#">Blog</a>
-											<ul class="sub-menu">
-												<li><a href="blog-classic.html">Classic Blog</a></li>
-												<li><a href="blog-grid.html">Grid Blog</a></li>
-												<li><a href="blog-single.html">Single Blog Post</a></li>
-											</ul></li>
-										<li class="menu-item-has-children jl-mega-menu"><a
-											href="#">Features</a>
-											<ul class="sub-menu">
-												<li><a href="typography.html">Typography</a></li>
-												<li><a href="buttons.html">Buttons</a></li>
-												<li><a href="forms.html">Forms</a></li>
-												<li><a href="progress-bars.html">Progress bars</a></li>
-												<li><a href="tabs.html">Tabs</a></li>
-												<li><a href="tables.html">Tables</a></li>
-												<li><a href="counter-coundown.html">Counter &
-														Countdown</a></li>
-												<li><a href="icon-box.html">Icon Box</a></li>
-												<li><a href="team.html">Team</a></li>
-												<li><a href="testimonials.html">Testimonials</a></li>
-												<li><a href="pricing.html">Pricing</a></li>
-												<li><a href="accordions.html">Accordions</a></li>
-											</ul></li>
-										<li class="menu-item-has-children jl-mega-menu"><a
-											href="#">Pages</a>
-											<ul class="sub-menu">
-												<li><a href="about-us.html">About Us</a></li>
-												<li><a href="team-member.html">Team Member</a></li>
-												<li><a href="gallery-grid.html">Gallery Grid</a></li>
-												<li><a href="404-page.html">404 Page</a></li>
-												<li><a href="search-page.html">Search Page</a></li>
-												<li><a href="privacy-policy.html">Privacy Policy</a></li>
-												<li><a href="faq.html">FAQ</a></li>
-												<li><a href="login.html">Login</a></li>
-												<li><a href="register.html">Register</a></li>
-												<li><a href="under-construction.html">Under
-														Construction</a></li>
-												<li><a href="shop-page.html">Shop Page</a></li>
-												<li><a href="shop-cart.html">Shop Cart</a></li>
-												<li><a href="single-shop-page.html">Single Shop
-														Page</a></li>
-											</ul></li>
-										<li><a href="contact-us.html">Contact Us</a></li>
-									</ul>
-								</div>
-
-								<!-- Cart and Reservation-->
-								<div class="jl-header-right">
-									<a class="jl-header-cart" href="#"> <span
-										class="jl-cart-icon ti-shopping-cart"></span> <span
-										class="jl-cart-number"><span>0</span></span>
-									</a>
-									<div class="jl-top-btn">
-										<a href="#">Reservation</a>
-									</div>
-								</div>
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			<c:import url="/userheader"></c:import>
 		</header>
 
 
@@ -156,47 +59,37 @@
 						</figure>
 					</div>
 					<div class="info-column col-md-6 col-sm-12">
-						<div class="details-header">
-							<h4>
-								<c:if test="${ not empty data }">
-									<div>${data.ptitle}</div>
-								</c:if>
-							</h4>
-							<div class="rating">
-								<span class="fa fa-star"></span> <span class="fa fa-star"></span>
-								<span class="fa fa-star"></span> <span class="fa fa-star"></span>
-								<span class="fa fa-star"></span>
-							</div>
-							<a class="reviews" href="#">( 3 Customer Reviews )</a>
-							<c:if test="${ not empty data }">
+						<c:if test="${ not empty data }">
+							<div class="details-header">
+								<h4>${data.ptitle}</h4>
+								<div class="rating">
+									<span class="fa fa-star"></span> <span class="fa fa-star"></span>
+									<span class="fa fa-star"></span> <span class="fa fa-star"></span>
+									<span class="fa fa-star"></span>
+								</div>
+								<a class="reviews" href="#">( 3 Customer Reviews )</a>
+
 								<div class="item-price">${data.pprice}
+									TL
 									<del>40</del>
 								</div>
-							</c:if>
-						</div>
-
-						<div class="text">Lorem ipsum dolor sit amet, consectetuer
-							adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-							Cum sociis natoque penatibus et magnis dis parturient montes,
-							nascetur ridiculus mus.</div>
-						<div class="other-options clearfix">
-							<div class="form-group stepper-type">
-								<div class="stepper ">
-									<input class="form-control stepper-input" type="number"
-										data-zeros="true" value="6" min="1" max="99"><span
-										class="stepper-arrow up"></span><span
-										class="stepper-arrow down"></span>
-								</div>
 							</div>
-
-							<c:if test="${ not empty data }">
+							<div class="text">${data.pdetail}</div>
+							<div class="other-options clearfix">
+								<div class="form-group stepper-type">
+									<div class="stepper ">
+										<input class="form-control stepper-input" type="number"
+											data-zeros="true" value="6" min="1" max="99"><span
+											class="stepper-arrow up"></span><span
+											class="stepper-arrow down"></span>
+									</div>
+								</div>
 								<form action='<s:url value="/addtocart"></s:url>' method="post"
 									role="form">
 
 									<input type="hidden" value="${ data.pphoto}" name="ophoto"
 										type="text" class="form-control" placeholder="Enter photo">
-
-
+										
 									<input type="hidden" value="${data.ptitle}" name="otitle"
 										type="text" class="form-control" placeholder="Enter title">
 
@@ -208,15 +101,18 @@
 
 									<input type="hidden" value="${data.pstatu}" name="ostatu"
 										type="text" class="form-control" placeholder="Enter statu">
+									<input type="hidden" value="" name="ouserid" type="text"
+										class="form-control" placeholder="Enter statu">
 									<div>
 										<button type="submit" class="btn">
 											<span class="btn-title">Add To Cart</span>
 										</button>
 									</div>
 								</form>
-							</c:if>
+							</div>
 
-						</div>
+						</c:if>
+
 						<div class="tagcloud margin-top-20">
 							<span class="posted_in">Categories:</span><a href="#" rel="tag">Good
 								taste</a>, <a href="#" rel="tag">Healthy</a>, <a href="#" rel="tag">Fresh</a>,
@@ -351,7 +247,7 @@
 											</h5>
 											<p class="text-italic">${item.pdetail}</p>
 											<p class="price">${item.pprice}TL</p>
-											<a  class="btn btn-border btn-gray"
+											<a class="btn btn-border btn-gray"
 												href='<s:url value="/order/${item.pid}"></s:url>'>Order
 												Now</a>
 										</div>
@@ -376,7 +272,7 @@
 											</h5>
 											<p class="text-italic">${item.pdetail}</p>
 											<p class="price">${item.pprice}TL</p>
-											<a  class="btn btn-border btn-gray"
+											<a class="btn btn-border btn-gray"
 												href='<s:url value="/order/${item.pid}"></s:url>'>Order
 												Now</a>
 										</div>
@@ -388,7 +284,7 @@
 					<!-- Product items -->
 					<div class="col-md-4">
 						<div class="shop-entry text-center margin-bottom-30">
-								<c:if test="${ not empty pls }">
+							<c:if test="${ not empty pls }">
 								<c:forEach items="${ pls }" var="item">
 									<c:if test="${item.pid==14 }">
 										<figure>
@@ -401,7 +297,7 @@
 											</h5>
 											<p class="text-italic">${item.pdetail}</p>
 											<p class="price">${item.pprice}TL</p>
-											<a  class="btn btn-border btn-gray"
+											<a class="btn btn-border btn-gray"
 												href='<s:url value="/order/${item.pid}"></s:url>'>Order
 												Now</a>
 										</div>
@@ -412,7 +308,8 @@
 					</div>
 				</div>
 			</div>
-		</section>F
+		</section>
+		F
 		<footer>
 			<div class="jl-footer-wrapper padding-top-60 padding-bottom-10">
 				<div class="container">

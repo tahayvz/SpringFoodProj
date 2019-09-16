@@ -40,7 +40,7 @@ public class UpdateProductController {
 		List<Procategory> cls = session.createQuery("from Procategory").list();
 		model.addAttribute("ctgData", cls);
 		List<Product> pls = session.createQuery("from Product").list();
-		model.addAttribute("ls", pls);
+		model.addAttribute("pls", pls);
 		List<Statu> sls = session.createQuery("from Statu").list();
 		model.addAttribute("sls", sls);
 		List<User> uls = session.createQuery("from User").list();

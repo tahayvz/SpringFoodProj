@@ -56,9 +56,6 @@
 							<h1>Add Product</h1>
 
 							<div class="card card-primary">
-								<div class="card-header">
-									<h3 class="card-title">Quick Example</h3>
-								</div>
 								<!-- /.card-header -->
 								<!-- form start -->
 								<form action='<s:url value="/admin/addproductpost"></s:url>'

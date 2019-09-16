@@ -34,7 +34,7 @@
 	<ul class="navbar-nav ml-auto">
 		<!-- Messages Dropdown Menu -->
 		<li class="nav-item dropdown"><a class="nav-link"
-			data-toggle="dropdown" href="#"> <i class="far fa-comments"></i>
+			data-toggle="dropdown" href="#"> <i class="far fa-bell"></i>
 				<span class="badge badge-danger navbar-badge"> <!-- 	order count -->
 					<c:if test="${not empty ls}">
 						${fn:length(ls)}
@@ -46,7 +46,17 @@
 					<div class="media">
 						<div class="media-body">
 							<h3 class="dropdown-item-title">
-								Brad Diesel
+								<c:if test="${not empty ls}">
+									<c:forEach items="${ls }" var="item" end="0">
+										<c:if test="${not empty uls}">
+											<c:forEach items="${uls }" var="items">
+												<c:if test="${ items.uid==item.ouserid}">
+													${items.uname}
+												</c:if>
+											</c:forEach>
+										</c:if>
+									</c:forEach>
+								</c:if>
 								<c:if test="${not empty ls}">
 									<c:forEach items="${ls }" var="item" end="0">
 										<h3>${item.otitle}</h3>
@@ -68,7 +78,18 @@
 
 						<div class="media-body">
 							<h3 class="dropdown-item-title">
-								John Pierce <span class="float-right text-sm text-muted"><i
+								<c:if test="${not empty ls}">
+									<c:forEach items="${ls }" var="item" end="0">
+										<c:if test="${not empty uls}">
+											<c:forEach items="${uls }" var="items">
+												<c:if test="${ items.uid==item.ouserid}">
+													${items.uname}
+												</c:if>
+											</c:forEach>
+										</c:if>
+									</c:forEach>
+								</c:if>
+								<span class="float-right text-sm text-muted"><i
 									class="fas fa-star"></i></span>
 								<c:if test="${not empty ls}">
 									<c:forEach items="${ls }" var="item" begin="1" end="1">
@@ -89,7 +110,18 @@
 
 						<div class="media-body">
 							<h3 class="dropdown-item-title">
-								Nora Silvester <span class="float-right text-sm text-warning"><i
+								<c:if test="${not empty ls}">
+									<c:forEach items="${ls }" var="item" end="0">
+										<c:if test="${not empty uls}">
+											<c:forEach items="${uls }" var="items">
+												<c:if test="${ items.uid==item.ouserid}">
+													${items.uname}
+												</c:if>
+											</c:forEach>
+										</c:if>
+									</c:forEach>
+								</c:if>
+								<span class="float-right text-sm text-warning"><i
 									class="fas fa-star"></i></span>
 								<c:if test="${not empty ls}">
 									<c:forEach items="${ls }" var="item" begin="2" end="2">
@@ -105,35 +137,9 @@
 					</div> <!-- Message End -->
 				</a>
 				<div class="dropdown-divider"></div>
-				<a href="#" class="dropdown-item dropdown-footer">See All
-					Messages</a>
+					<a href="#" class="dropdown-item dropdown-footer">Last 3 orders	</a>
 			</div></li>
-		<!-- Notifications Dropdown Menu -->
-		<li class="nav-item dropdown"><a class="nav-link"
-			data-toggle="dropdown" href="#"> <i class="far fa-bell"></i> <span
-				class="badge badge-warning navbar-badge">15</span>
-		</a>
-			<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-				<span class="dropdown-item dropdown-header">15 Notifications</span>
-				<div class="dropdown-divider"></div>
-				<a href="#" class="dropdown-item"> <i
-					class="fas fa-envelope mr-2"></i> 4 new messages <span
-					class="float-right text-muted text-sm">3 mins</span>
-				</a>
-				<div class="dropdown-divider"></div>
-				<a href="#" class="dropdown-item"> <i class="fas fa-users mr-2"></i>
-					8 friend requests <span class="float-right text-muted text-sm">12
-						hours</span>
-				</a>
-				<div class="dropdown-divider"></div>
-				<a href="#" class="dropdown-item"> <i class="fas fa-file mr-2"></i>
-					3 new reports <span class="float-right text-muted text-sm">2
-						days</span>
-				</a>
-				<div class="dropdown-divider"></div>
-				<a href="#" class="dropdown-item dropdown-footer">See All
-					Notifications</a>
-			</div></li>
+	
 		<li class="nav-item"><a class="nav-link"
 			data-widget="control-sidebar" data-slide="true" href="#"> <i
 				class="fas fa-th-large"></i>

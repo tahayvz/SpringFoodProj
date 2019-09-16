@@ -24,7 +24,7 @@ public class HomeController {
 		Session sesi = sf.openSession(); 
 		List<Product> ls = sesi.createQuery("from Product").list();
 		model.addAttribute("data", ls);
-		
+
 		
 		return "home";
 	}

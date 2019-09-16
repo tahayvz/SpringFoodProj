@@ -84,19 +84,5 @@ public class AddAdminController {
 		
 		return Util.control(req, "redirect:/admin/addadmin");
 	}
-	
-	
-	@RequestMapping(value = "/updateAdmin/{aid}")
-	public String updateAdmin(@PathVariable int aid,HttpServletRequest req) {
-		Session sesi = sf.openSession();
-		Transaction tr = sesi.beginTransaction();
 		
-		Admin adm = sesi.load(Admin.class, aid);
-		adm.setAid(aid);
-		sesi.update(adm);
-		
-		tr.commit();
-		return Util.control(req, "redirect:/admin/addadmin");
-	}
-	
 }

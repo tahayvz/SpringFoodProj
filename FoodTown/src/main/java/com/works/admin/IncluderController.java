@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import model.Admin;
 import model.Procategory;
 import model.Proorder;
+import model.User;
 import util.HibernateUtil;
 import util.Util;
 @Controller
 @RequestMapping("/admin")
 public class IncluderController {
 	SessionFactory sf = HibernateUtil.getSessionFactory();
-
 	@RequestMapping(value = "/css", method = RequestMethod.GET)
 	public String dashBoard() {
 		return "admin/inc/css";
@@ -37,7 +37,9 @@ public class IncluderController {
 		model.addAttribute("als", als);
 		List<Procategory> cls = sesi.createQuery("from Procategory").getResultList();
 		model.addAttribute("cls",cls);
-	    
+		Admin ad = (Admin) sesi.createQuery("from Admin  where aid= ?").setParameter(0, LoginController.Id).list()
+				.get(0);
+		model.addAttribute("adminls", ad);
 		return "admin/inc/menu";
 	}
 
@@ -46,6 +48,8 @@ public class IncluderController {
 		Session sesi = sf.openSession();
 		List<Proorder> ls 	= sesi.createQuery("from Proorder").getResultList();
 		model.addAttribute("ls", ls);
+		List<User> uls 	= sesi.createQuery("from User").getResultList();
+		model.addAttribute("uls", uls);
 
 		return "admin/inc/header";
 	}
@@ -54,4 +58,9 @@ public class IncluderController {
 	public String smallBox() {
 		return "admin/inc/smallbox";
 	}
+
+
+		
+	
+	
 }

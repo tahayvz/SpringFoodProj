@@ -3,12 +3,21 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
 
-
+<script>
+	function exitfunc() {
+		const cnf = confirm("Are you sure you want to logout?");
+		if (cnf) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+</script>
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
 	<!-- Brand Logo -->
-	<a href="index3.html" class="brand-link"> 
-		<span class="brand-text font-weight-light">AdminLTE 3</span>
+	<a href="index3.html" class="brand-link"> <span
+		class="brand-text font-weight-light">AdminLTE 3</span>
 	</a>
 
 	<!-- Sidebar -->
@@ -16,12 +25,14 @@
 		<!-- Sidebar user panel (optional) -->
 		<div class="user-panel mt-3 pb-3 mb-3 d-flex">
 			<div class="image">
-				<img src='<s:url value="../resources/img/profile.png"></s:url>' class="img-circle elevation-2"
-					alt="User Image">
+				<img src='<s:url value="../resources/img/profile.png"></s:url>'
+					class="img-circle elevation-2" alt="User Image">
 			</div>
 			<div class="info">
-				<a href="#" class="d-block">
-				Alexander Pierce</a>
+				<a href="#" class="d-block"> <c:if test="${not empty adminls}">
+				${adminls.aname} 
+				</c:if>
+				</a>
 			</div>
 		</div>
 
@@ -89,67 +100,81 @@
 							href='<s:url value="/admin/userlist"></s:url>' class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
 								<p>User List</p>
-						</a></li></ul>
-						<li class="nav-item has-treeview"><a href="#"
-							class="nav-link"> <i class="nav-icon fas fa-tree"></i>
-								<p>
-									Products Category <i class="fas fa-angle-left right"></i>
-								</p>
-						</a>
-							<ul class="nav nav-treeview">
-								<li class="nav-item"><c:if test="${not empty cls}">
-										<c:forEach items="${cls}" var="item" begin="0" end="0">
-											<a
-												href='<s:url value="/admin/categoryproduct/${item.ctname}"></s:url>'
-												class="nav-link"> <i class="far fa-circle nav-icon"></i>
-												<p>${item.ctname}</p>
-											</a>
-										</c:forEach>
-									</c:if></li>
-								<li class="nav-item"><c:if test="${not empty cls}">
-										<c:forEach items="${cls}" var="item" begin="1" end="1">
-											<a
-												href='<s:url value="/admin/categoryproduct/${item.ctname}"></s:url>'
-												class="nav-link"> <i class="far fa-circle nav-icon"></i>
-												<p>${item.ctname}</p>
-											</a>
-										</c:forEach>
-									</c:if></li>
-								<li class="nav-item"><c:if test="${not empty cls}">
-										<c:forEach items="${cls}" var="item" begin="2" end="2">
-											<a
-												href='<s:url value="/admin/categoryproduct/${item.ctname}"></s:url>'
-												class="nav-link"> <i class="far fa-circle nav-icon"></i>
-												<p>${item.ctname}</p>
-											</a>
-										</c:forEach>
-									</c:if></li>
-								<li class="nav-item"><c:if test="${not empty cls}">
-										<c:forEach items="${cls}" var="item" begin="3" end="3">
-											<a
-												href='<s:url value="/admin/categoryproduct/${item.ctname}"></s:url>'
-												class="nav-link"> <i class="far fa-circle nav-icon"></i>
-												<p>${item.ctname}</p>
-											</a>
-										</c:forEach>
-									</c:if></li>
-								<li class="nav-item"><c:if test="${not empty cls}">
-										<c:forEach items="${cls}" var="item" begin="4" end="4">
-											<a
-												href='<s:url value="/admin/categoryproduct/${item.ctname}"></s:url>'
-												class="nav-link"> <i class="far fa-circle nav-icon"></i>
-												<p>${item.ctname}</p>
-											</a>
-										</c:forEach>
-									</c:if></li>
-							</ul></li>
-						<li class="nav-item"><a
-							href='<s:url value="/admin/exit"></s:url>' class="nav-link">
-								<i class="nav-icon far fa-circle text-danger"></i>
-								<p class="text">Exit</p>
 						</a></li>
+					</ul></li>
+				<li class="nav-item has-treeview"><a href="#" class="nav-link">
+						<i class="nav-icon fas fa-tree"></i>
+						<p>
+							Products Category <i class="fas fa-angle-left right"></i>
+						</p>
+				</a>
+					<ul class="nav nav-treeview">
+						<li class="nav-item"><c:if test="${not empty cls}">
+								<c:forEach items="${cls}" var="item" begin="0" end="0">
+									<a
+										href='<s:url value="/admin/categoryproduct/${item.ctname}"></s:url>'
+										class="nav-link"> <i class="far fa-circle nav-icon"></i>
+										<p>${item.ctname}</p>
+									</a>
+								</c:forEach>
+							</c:if></li>
+						<li class="nav-item"><c:if test="${not empty cls}">
+								<c:forEach items="${cls}" var="item" begin="1" end="1">
+									<a
+										href='<s:url value="/admin/categoryproduct/${item.ctname}"></s:url>'
+										class="nav-link"> <i class="far fa-circle nav-icon"></i>
+										<p>${item.ctname}</p>
+									</a>
+								</c:forEach>
+							</c:if></li>
+						<li class="nav-item"><c:if test="${not empty cls}">
+								<c:forEach items="${cls}" var="item" begin="2" end="2">
+									<a
+										href='<s:url value="/admin/categoryproduct/${item.ctname}"></s:url>'
+										class="nav-link"> <i class="far fa-circle nav-icon"></i>
+										<p>${item.ctname}</p>
+									</a>
+								</c:forEach>
+							</c:if></li>
+						<li class="nav-item"><c:if test="${not empty cls}">
+								<c:forEach items="${cls}" var="item" begin="3" end="3">
+									<a
+										href='<s:url value="/admin/categoryproduct/${item.ctname}"></s:url>'
+										class="nav-link"> <i class="far fa-circle nav-icon"></i>
+										<p>${item.ctname}</p>
+									</a>
+								</c:forEach>
+							</c:if></li>
+						<li class="nav-item"><c:if test="${not empty cls}">
+								<c:forEach items="${cls}" var="item" begin="4" end="4">
+									<a
+										href='<s:url value="/admin/categoryproduct/${item.ctname}"></s:url>'
+										class="nav-link"> <i class="far fa-circle nav-icon"></i>
+										<p>${item.ctname}</p>
+									</a>
+								</c:forEach>
+							</c:if></li>
+					</ul></li>
+				<li class="nav-item has-treeview"><a href="#" class="nav-link">
+						<i class="nav-icon fas fa-table"></i>
+						<p>
+							Category Control <i class="right fas fa-angle-left"></i>
+						</p>
+				</a>
+					<ul class="nav nav-treeview">
+						<li class="nav-item"><a
+							href='<s:url value="/admin/categoryList"></s:url>'
+							class="nav-link"> <i class="far fa-circle nav-icon"></i>
+								<p>Categories</p>
+						</a></li>
+					</ul></li>
+				<li class="nav-item"><a onclick="return exitfunc();"
+					href='<s:url value="/admin/exit"></s:url>' class="nav-link"> <i
+						class="nav-icon far fa-circle text-danger"></i>
+						<p class="text">Exit</p>
+				</a></li>
 
-					</ul>
+			</ul>
 		</nav>
 		<!-- /.sidebar-menu -->
 	</div>

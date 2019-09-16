@@ -21,6 +21,7 @@ import util.Util;
 @RequestMapping("/admin")
 public class LoginController {
 	DB db = new DB();
+	static int Id;
 	
 	// @RequestMapping("/admin") -> all methods under this request has to get /admin
 
@@ -49,6 +50,7 @@ public class LoginController {
 				adm.setAid(rs.getInt("aid"));
 				adm.setAname(rs.getString("aname"));
 				req.getSession().setAttribute("aid", adm);
+				Id=adm.getAid();
 
 				// remember check ?
 				if(remember.equals("on")) {
@@ -66,7 +68,6 @@ public class LoginController {
 		}
 		return "admin/login";
 	}
-
 	
 	// exit
 	@RequestMapping(value = "/exit", method = RequestMethod.GET)

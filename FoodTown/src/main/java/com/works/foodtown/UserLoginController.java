@@ -21,6 +21,7 @@ import util.Util;
 public class UserLoginController {
 	
 	DB db = new DB();
+	static int uid;
 
 	// login page create
 	@RequestMapping(value = "/loginuser", method = RequestMethod.GET)
@@ -48,7 +49,8 @@ public class UserLoginController {
 				user.setUid(rs.getInt("uid"));
 				user.setUname(rs.getString("uname"));
 				req.getSession().setAttribute("uid", user);
-				
+				uid=user.getUid();
+
 				// remember check ?
 				if(remember.equals("on")) {
 					Cookie cookie = new Cookie("user_cookie", ""+rs.getInt("uid"));
