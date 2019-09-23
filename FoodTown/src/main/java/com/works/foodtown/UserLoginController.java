@@ -22,7 +22,7 @@ public class UserLoginController {
 	
 	DB db = new DB();
 	static int uid;
-
+	
 	// login page create
 	@RequestMapping(value = "/loginuser", method = RequestMethod.GET)
 	public String login() {
@@ -50,7 +50,7 @@ public class UserLoginController {
 				user.setUname(rs.getString("uname"));
 				req.getSession().setAttribute("uid", user);
 				uid=user.getUid();
-
+						
 				// remember check ?
 				if(remember.equals("on")) {
 					Cookie cookie = new Cookie("user_cookie", ""+rs.getInt("uid"));
@@ -62,6 +62,7 @@ public class UserLoginController {
 				return "redirect:/";
 			} else {
 				model.addAttribute("error", "Username or password incorrect");
+				return "redirect:/loginuser";
 			}
 		} catch (Exception e) {
 			System.err.println("login error : " + e);
@@ -83,6 +84,7 @@ public class UserLoginController {
 		req.getSession().invalidate();
 		// single session remove
 		req.getSession().removeAttribute("uid");
+		uid=0;
 		return "redirect:/";
 	}
 	

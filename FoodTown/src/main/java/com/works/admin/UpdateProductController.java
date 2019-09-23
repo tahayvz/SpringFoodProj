@@ -29,7 +29,7 @@ public class UpdateProductController {
 	SessionFactory sf = HibernateUtil.getSessionFactory();
 
 	@RequestMapping(value = "/updateProduct/{pId}", method = RequestMethod.GET)
-	public String editNewsWindow(@PathVariable int pId, Model model, HttpServletRequest req) {
+	public String updateProduct(@PathVariable int pId, Model model, HttpServletRequest req) {
 		
 		// no transaction required in select operation
 		editID = pId;
@@ -51,7 +51,7 @@ public class UpdateProductController {
 	}
 
 	@RequestMapping(value = "/updateProduct/productEdit", method = RequestMethod.POST)
-	public String userEdit(Product product, HttpServletRequest req) {
+	public String updateProductPost(Product product, HttpServletRequest req) {
 
 		Session sesi = sf.openSession();
 		Transaction tr = sesi.beginTransaction();

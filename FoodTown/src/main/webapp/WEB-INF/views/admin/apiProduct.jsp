@@ -139,17 +139,14 @@
 									<tbody>
 
 										<c:if test="${ not empty ls }">
-											<c:forEach items="${ls }" var="item">
+											<c:forEach items="${ls }" var="item" >
 												<tr>
 													<td>${item.productId }</td>
 													<td>${item.productName }</td>
 													<td>${item.price }</td>
-													<td><a
-														href='<s:url value="/admin/detailApiProduct/${ item.productId }"></s:url>'
-														class="btn btn-info">Detail</a></td>
-													<td><a
-														href='<s:url value="/admin/updateApiProductPost/${ item.productId }"></s:url>'
-														class="btn btn-info">Update</a></td>
+													<td>
+                      	<img class="img-thumbnail" src="${item.images[0].thumb }" width="75" />
+                      </td>
 
 												</tr>
 											</c:forEach>

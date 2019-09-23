@@ -60,9 +60,9 @@ public class CategoryController {
 		
 		Session sesi = sf.openSession();
 		Transaction tr = sesi.beginTransaction();
-		
 		int id =  (int) sesi.save(category);
 		System.out.println("insert category id : " + id);
+		
 		tr.commit(); 
 	
 		//tr.rollback(); 

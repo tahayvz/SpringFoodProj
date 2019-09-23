@@ -16,10 +16,9 @@ import util.HibernateUtil;
 @Controller
 public class HomeController {
 	SessionFactory sf = HibernateUtil.getSessionFactory();
-
-
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
+			
 
 		Session sesi = sf.openSession(); 
 		List<Product> ls = sesi.createQuery("from Product").list();

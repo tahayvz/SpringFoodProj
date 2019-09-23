@@ -71,7 +71,10 @@
 									<li><a href="search-page.html">Search Page</a></li>
 									<li><a href="privacy-policy.html">Privacy Policy</a></li>
 									<li><a href="faq.html">FAQ</a></li>
-									<li><a href="login.html">Login</a></li>
+									<li><a
+										href='<s:url value="/loginuser"></s:url>'>Login</a> </li>
+										<li><a
+										href='<s:url value="/exit"></s:url>'>Exit</a> </li>
 									<li><a href="register.html">Register</a></li>
 									<li><a href="under-construction.html">Under
 											Construction</a></li>
@@ -90,6 +93,8 @@
 							class="jl-cart-number"><span> <c:if
 										test="${not empty ols}">
 											${fn:length(ols)}
+									</c:if> <c:if test="${ empty ols}">
+										0
 									</c:if>
 							</span></span>
 						</a>

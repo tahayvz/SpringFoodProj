@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -67,6 +68,19 @@ public class ProductsController {
 		return ols;
 	}
 
+	// delete admin
+	@RequestMapping(value = "/deleteProduct/{pid}")
+	public String deleteAdmin(@PathVariable int pid,HttpServletRequest req) {
+		
+		Session sesi = sf.openSession();
+		Transaction tr = sesi.beginTransaction();
+		Product product= sesi.load(Product.class, pid);
+		sesi.delete(product);
+		tr.commit();
+		
+		return Util.control(req, "redirect:/admin/products");
+	}
+	
 	
 	@RequestMapping(value = "/categoryproduct/{ctg}", method = RequestMethod.GET)
 	public String categoryProduct(Model model, @PathVariable String ctg, HttpServletRequest req) {

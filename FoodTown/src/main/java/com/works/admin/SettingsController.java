@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import restModel.API;
 import restModel.Bilgiler;
 import restModel.JsonData;
+import restModel.Product;
 import restModel.Services;
 import retrofit2.Call;
 import util.Util;
@@ -28,6 +29,7 @@ public class SettingsController {
 	}
 	
 	List<Bilgiler> ls = new ArrayList<Bilgiler>();
+	List<Product> pls = new ArrayList<Product>();
 	public List<Bilgiler> productResult() {
 		Services servis = API.getClient().create(Services.class);
 		Call<JsonData> dt = servis.fncProduct();
@@ -52,6 +54,8 @@ public class SettingsController {
 		*/
 		try {
 			ls = dt.execute().body().getProducts().get(0).getBilgiler();
+			pls= dt.execute().body().getProducts();
+			
 		} catch (Exception e) {
 			System.err.println("hata : " + e);
 		}

@@ -42,9 +42,10 @@ public class AddProductController {
 		
 		Session sesi = sf.openSession();
 		Transaction tr = sesi.beginTransaction();
-	
-		int id =  (int) sesi.save(product);
-		System.out.println("insert id : " + id);
+		int id = (Integer) sesi.save(product);
+		if (id > 0) {
+			System.out.println("added success");
+		}
 		tr.commit(); 
 		
 		//tr.rollback(); 

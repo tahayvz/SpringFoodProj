@@ -12,7 +12,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <c:import url="/admin/css"></c:import>
-
+<script>
+	function del() {
+		const cnf = confirm("Are you sure you want to delete?");
+		if (cnf) {
+			return true;
+		} else {
+			return false;
+		}
+	}	
+</script>
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -93,7 +102,7 @@
 																		</c:if>
 																</c:forEach>
 															</c:if></td>
-														<td><a
+														<td><a onclick="del()"
 															href='<s:url value="/admin/deleteProduct/${ item.pid }"></s:url>'
 															class="btn btn-danger">Delete</a></td>
 														<td><a
