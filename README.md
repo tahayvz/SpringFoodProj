@@ -1,5 +1,5 @@
 # SpringFoodProj
- This project containes Spring MVC, Spring Security and Hibernate using.
+ This project containes Spring MVC and Hibernate using.
 
 
 # PROJE EKRAN GÖRÜNTÜLERİ
